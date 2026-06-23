@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import FloralCluster from "@/components/sections/FloralCluster";
 import ScrollFade from "@/components/sections/ScrollFade";
 import About from "@/components/sections/About";
+import Work from "@/components/sections/Work";
 
 const skillTokens = [
   {
@@ -191,6 +192,7 @@ export default function Home() {
       </section>
 
       <About />
+      <Work />
     </main>
   );
 }
