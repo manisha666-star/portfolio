@@ -15,7 +15,10 @@ const projects = [
 
 export default function Work() {
   return (
-    <section id="projects" className="bg-white px-6 py-32 sm:px-10 lg:px-16">
+    <section
+      id="projects"
+      className="bg-white px-6 pb-32 pt-44 sm:px-10 sm:pt-52 lg:px-16 lg:pt-60"
+    >
       <div className="mx-auto max-w-7xl">
         {/* Section Header */}
         <div className="text-center">

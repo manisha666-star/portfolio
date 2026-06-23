@@ -116,6 +116,14 @@ body {
   transform: translateY(0);
 }
 
+.about-marquee {
+  animation: about-marquee 24s linear infinite;
+}
+
+.about-marquee:hover {
+  animation-play-state: paused;
+}
+
 .hero-button {
   isolation: isolate;
   overflow: visible;
@@ -295,6 +303,16 @@ body {
   }
 }
 
+@keyframes about-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 20px));
+  }
+}
+
 @keyframes floral-drift {
   0%,
   100% {
@@ -452,10 +470,4 @@ body {
   top: 25%;
   right: 20%;
   animation: float 16s ease-in-out infinite;
-}
-
-
-#about {
-  margin-top: 180px;
-  margin-left: 140px;
 }
