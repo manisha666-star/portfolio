@@ -71,43 +71,43 @@ export default function About() {
       className="relative overflow-hidden bg-white px-6 py-24 sm:px-10 sm:py-28 lg:px-16 lg:py-32"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="grid items-center gap-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-20 xl:gap-24">
+        <div className="grid items-start gap-16 lg:grid-cols-[minmax(0,0.95fr)_minmax(0,1.05fr)] lg:gap-20 xl:gap-24">
           {/* LEFT CODE CARD */}
           <div className="mx-auto w-full max-w-xl">
-            <div className="overflow-hidden rounded-[28px] border border-white/70 bg-[#111317] shadow-[0_24px_70px_rgba(55,43,38,0.16)]">
-              <div className="flex items-center justify-between border-b border-white/10 bg-[#181b21] px-5 py-3">
+            <div className="overflow-hidden rounded-[28px] border border-[#eee8e1] bg-white shadow-[0_24px_70px_rgba(55,43,38,0.12)]">
+              <div className="flex items-center justify-between border-b border-[#eee8e1] bg-[#faf8f5] px-5 py-3">
                 <div className="flex items-center gap-2">
                   <span className="h-3 w-3 rounded-full bg-[#ff5f57]" />
                   <span className="h-3 w-3 rounded-full bg-[#ffbd2e]" />
                   <span className="h-3 w-3 rounded-full bg-[#28c840]" />
                 </div>
 
-                <span className="rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 font-mono text-[11px] text-white/50">
+                <span className="rounded-full border border-[#e6ddd4] bg-white px-3 py-1 font-mono text-[11px] text-[#8b837d]">
                   about.ts
                 </span>
               </div>
 
-              <div className="grid min-h-[320px] grid-cols-[44px_1fr] bg-[#111317] sm:min-h-[360px]">
-                <div className="select-none border-r border-white/10 bg-black/10 px-3 py-5 text-right font-mono text-[13px] leading-7 text-white/25">
+              <div className="grid min-h-[320px] grid-cols-[44px_1fr] bg-white sm:min-h-[360px]">
+                <div className="select-none border-r border-[#eee8e1] bg-[#fbfaf8] px-3 py-5 text-right font-mono text-[13px] leading-7 text-[#b7aea6]">
                   {Array.from({ length: 8 }, (_, index) => (
                     <div key={index}>{index + 1}</div>
                   ))}
                 </div>
 
-                <pre className="overflow-hidden whitespace-pre-wrap px-5 py-5 font-mono text-[13px] leading-7 text-[#d7dce5] sm:px-6 sm:text-[14px]">
+                <pre className="overflow-hidden whitespace-pre-wrap px-5 py-5 font-mono text-[13px] leading-7 text-[#4f4a46] sm:px-6 sm:text-[14px]">
                   <code>{typedCode}</code>
                   <span className="ml-1 inline-block h-5 w-[7px] translate-y-1 animate-pulse bg-[#8b1e2d]" />
                 </pre>
               </div>
 
-              <div className="flex flex-wrap gap-2 border-t border-white/10 bg-[#181b21] px-5 py-3 text-[12px] text-white/50">
-                <span className="rounded-full bg-white/[0.06] px-3 py-1">
+              <div className="flex flex-wrap gap-2 border-t border-[#eee8e1] bg-[#faf8f5] px-5 py-3 text-[12px] text-[#756f69]">
+                <span className="rounded-full bg-white px-3 py-1 shadow-[0_6px_18px_rgba(45,34,28,0.05)]">
                   React
                 </span>
-                <span className="rounded-full bg-white/[0.06] px-3 py-1">
+                <span className="rounded-full bg-white px-3 py-1 shadow-[0_6px_18px_rgba(45,34,28,0.05)]">
                   Next.js
                 </span>
-                <span className="rounded-full bg-white/[0.06] px-3 py-1">
+                <span className="rounded-full bg-white px-3 py-1 shadow-[0_6px_18px_rgba(45,34,28,0.05)]">
                   TypeScript
                 </span>
               </div>
