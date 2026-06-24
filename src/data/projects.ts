@@ -23,4 +23,12 @@ export const projects: Project[] = [
     image: "/floral/flower-pink.png",
     link: "#",
   },
+  {
+    title: "Design System",
+    type: "UI Design, Frontend Components",
+    description:
+      "A reusable interface system focused on consistent spacing, typography, color tokens, and polished component patterns for modern web products.",
+    image: "/floral/flower-pink.png",
+    link: "#",
+  },
 ];
