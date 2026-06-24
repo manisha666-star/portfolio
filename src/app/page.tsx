@@ -4,6 +4,7 @@ import ScrollFade from "@/components/sections/ScrollFade";
 import About from "@/components/sections/About";
 import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
+import Design from "@/components/sections/Design";
 
 const skillTokens = [
   {
@@ -197,6 +198,7 @@ export default function Home() {
       <div aria-hidden="true" className="h-24 sm:h-32 lg:h-40" />
   
       <Projects />
+      <Design />
     </main>
   );
 }
