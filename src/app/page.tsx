@@ -2,8 +2,8 @@ import Navbar from "@/components/layout/Navbar";
 import FloralCluster from "@/components/sections/FloralCluster";
 import ScrollFade from "@/components/sections/ScrollFade";
 import About from "@/components/sections/About";
-import Work from "@/components/sections/Work";
 import Skills from "@/components/sections/Skills";
+import Projects from "@/components/sections/Projects";
 
 const skillTokens = [
   {
@@ -193,8 +193,10 @@ export default function Home() {
       </section>
 
       <About />
+
+      <div aria-hidden="true" className="h-24 sm:h-32 lg:h-40" />
   
-      {/* <Work /> */}
+      <Projects />
     </main>
   );
 }
