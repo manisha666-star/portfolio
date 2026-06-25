@@ -42,7 +42,7 @@ function ProjectPreview({ index }: { index: number }) {
           ].map((line, lineIndex) => (
             <div
               key={line}
-              className="font-mono text-[clamp(10px,0.82vw,14px)] leading-[1.75] text-[#4bb2bd]"
+              className="display-font text-[clamp(10px,0.82vw,14px)] leading-[1.75] text-[#4bb2bd]"
             >
               <span className="mr-5 text-[#596166]">{lineIndex + 1}</span>
               {line}
@@ -123,7 +123,7 @@ export default function Projects() {
 
               {/* Text */}
               <div style={{ marginTop: "56px" }}>
-                <p className="font-mono text-[18px] leading-none text-[#b3b3b3]">
+                <p className="display-font text-[18px] leading-none text-[#b3b3b3]">
                   {String(index + 1).padStart(2, "0")}
                 </p>
 

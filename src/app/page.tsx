@@ -2,9 +2,10 @@ import Navbar from "@/components/layout/Navbar";
 import FloralCluster from "@/components/sections/FloralCluster";
 import ScrollFade from "@/components/sections/ScrollFade";
 import About from "@/components/sections/About";
-import Skills from "@/components/sections/Skills";
 import Projects from "@/components/sections/Projects";
 import Design from "@/components/sections/Design";
+import Experience from "@/components/sections/Experience";
+import Contact from "@/components/sections/Contact";
 
 const skillTokens = [
   {
@@ -52,7 +53,7 @@ function SkillToken({
 }) {
   return (
     <div
-      className={`token-float absolute z-30 hidden items-center gap-3 rounded-full border border-black/5 bg-white/92 px-4 py-2 font-mono text-[13px] text-[#4e4e4e] shadow-[0_8px_24px_rgba(0,0,0,0.1)] backdrop-blur-sm xl:flex ${className}`}
+      className={`token-float display-font absolute z-30 hidden items-center gap-3 rounded-full border border-black/5 bg-white/92 px-4 py-2 text-[13px] text-[#4e4e4e] shadow-[0_8px_24px_rgba(0,0,0,0.1)] backdrop-blur-sm xl:flex ${className}`}
     >
       {prefix ? (
         <span className="font-sans text-[13px] font-bold text-[#171717]">
@@ -193,12 +194,16 @@ export default function Home() {
         </div>
       </section>
 
+      <div aria-hidden="true" className="h-12 sm:h-16 lg:h-24" />
+
       <About />
 
       <div aria-hidden="true" className="h-24 sm:h-32 lg:h-40" />
   
       <Projects />
       <Design />
+      <Experience />
+      <Contact />
     </main>
   );
 }

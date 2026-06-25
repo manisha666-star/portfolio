@@ -11,8 +11,14 @@ const disciplines = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-white py-32 text-[#111]">
-      <div className="relative left-1/2 w-[min(1180px,calc(100vw-160px))] -translate-x-1/2">
+    <section
+      id="about"
+      className="bg-white py-32 text-[#111]"
+      style={{
+        paddingInline: "clamp(48px, 14vw, 286px)",
+      }}
+    >
+      <div className="mx-auto w-full max-w-[1180px]">
         <div className="flex items-center gap-7">
           <p className="mb-10 text-[11px] font-semibold uppercase tracking-[0.5em] text-[#858585] sm:mb-12">
             ABOUT ME
@@ -28,8 +34,6 @@ export default function About() {
             who builds thoughtful products
           </span>
         </h2>
-
-
 
         <div
           className="mt-14 max-w-6xl overflow-hidden border-y border-neutral-200"
@@ -66,9 +70,9 @@ export default function About() {
 
         <div aria-hidden="true" style={{ height: "60px" }} />
 
-        <div className="grid items-start gap-24 lg:grid-cols-[560px_420px]">
+        <div className="grid items-start gap-16 lg:grid-cols-[560px_420px]">
           <div>
-            <div className="flex gap-18">
+            <div className="flex gap-6">
               <div className="mt-2 h-[120px] w-[8px] shrink-0 bg-[#8b1e2d]" />
 
               <p className="text-[26px] font-medium leading-[1.6] tracking-[-0.02em] text-black">
@@ -77,7 +81,7 @@ export default function About() {
               </p>
             </div>
 
-            <div className="mt-40 space-y-24 text-[17px] leading-[1.95] text-neutral-600">
+            <div className="mt-40 space-y-24 text-[17px] leading-[1.95] text-neutral-600" style={{ marginTop: "1.5rem" }}>
               <p>
                 I&apos;m Manisha Rai, a Master&apos;s student in Software
                 Engineering at EPITA, France, with a background in graphic
@@ -97,13 +101,13 @@ export default function About() {
             </div>
           </div>
 
-          <aside className="w-full">
-            <div className="relative min-h-[420px] overflow-hidden rounded-lg bg-[#f8f7f4] shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+          <aside className="w-full max-w-[500px] lg:justify-self-start">
+            <div className="relative min-h-[400px] overflow-hidden rounded-lg bg-[#f8f7f4] shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
               <Image
                 src="/floral/flower-pink.png"
                 alt=""
                 fill
-                sizes="(max-width: 1024px) 100vw, 420px"
+                sizes="(max-width: 1024px) 100vw, 360px"
                 className="object-contain p-10"
               />
             </div>
