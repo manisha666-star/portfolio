@@ -2,34 +2,29 @@ import Image from "next/image";
 
 const designWorks = [
   {
-    title: "Yearbook 2080",
-    category: "Print Design",
-    image: "/design/yearbook.jpg",
+    title: "Brand Identity",
+    category: "Branding / Visual Systems",
+    image: "/logo.png",
   },
   {
-    title: "School Prospectus",
-    category: "Branding / Print",
-    image: "/design/prospectus.jpg",
+    title: "Event Branding",
+    category: "Events / Campaign Systems",
+    image: "/Thunderbolts.png",
   },
   {
-    title: "Thunderbolts Cup",
-    category: "Event Branding",
-    image: "/design/thunderbolts.jpg",
+    title: "Editorial",
+    category: "Publication / Layout Design",
+    image: "/gems.png",
   },
   {
-    title: "Newspaper Advertisement",
-    category: "Print Advertisement",
-    image: "/design/newspaper.jpg",
+    title: "Marketing",
+    category: "Social Media / Digital Design",
+    image: "/gems.png",
   },
   {
-    title: "Social Media Campaign",
-    category: "Digital Design",
-    image: "/design/social-media.jpg",
-  },
-  {
-    title: "Event Banner Design",
-    category: "Large Format Design",
-    image: "/design/banner.jpg",
+    title: "UI/UX",
+    category: "Research / Interface Design",
+    image: "/parkwise.png",
   },
 ];
 

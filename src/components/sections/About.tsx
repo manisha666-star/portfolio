@@ -27,10 +27,10 @@ export default function About() {
 
         <div aria-hidden="true" style={{ height: "40px" }} />
 
-        <h2 className="max-w-[900px] text-[60px] font-semibold leading-[1.05] tracking-[-0.06em] text-black">
+        <h2 className="max-w-[900px] text-[60px] font-semibold leading-[1.1] tracking-[-0.06em] text-black">
           A software engineer
           <br />
-          <span className="block italic font-semibold text-neutral-500">
+          <span className="block font-medium text-neutral-500">
             who builds thoughtful products
           </span>
         </h2>
@@ -73,36 +73,28 @@ export default function About() {
         <div className="grid items-start gap-16 lg:grid-cols-[560px_420px]">
           <div>
             <div className="flex gap-6">
-              <div className="mt-2 h-[120px] w-[8px] shrink-0 bg-[#8b1e2d]" />
+              <div className="mt-2 h-[104px] w-[8px] shrink-0 bg-[#8b1e2d]" />
 
-              <p className="text-[26px] font-medium leading-[1.6] tracking-[-0.02em] text-black">
-                I build modern digital products that combine clean interfaces,
-                intuitive user experiences, and scalable engineering solutions.
+              <p className="text-[22px] font-medium leading-[1.6] tracking-[-0.02em] text-black">
+                I combine engineering and design to create digital products that are thoughtful, practical, and built with attention to every detail.
               </p>
             </div>
 
-            <div className="mt-40 space-y-24 text-[17px] leading-[1.95] text-neutral-600" style={{ marginTop: "1.5rem" }}>
+            <div className="mt-40 space-y-24 text-[18px] leading-[1.95] text-neutral-600" style={{ marginTop: "1.5rem" }}>
               <p>
-                I&apos;m Manisha Rai, a Master&apos;s student in Software
-                Engineering at EPITA, France, with a background in graphic
-                design and web development.
+
+                I&apos;m Manisha Rai, currently pursuing a Master&apos;s in Software Engineering at EPITA, France. Before transitioning into software engineering, I spent over three years working as a professional graphic designer, where I developed a strong foundation in visual communication, user experience, and problem-solving.
               </p>
 
               <p>
-                I&apos;m focused on React, Next.js, TypeScript, Node.js,
-                software architecture, cloud technologies, and building
-                real-world projects for internship opportunities.
+                Today, I focus on building modern web applications with React, Next.js, TypeScript, and Node.js while continuously expanding my backend and cloud development skills. My design background influences every project I build, helping me create products that balance clean engineering with thoughtful user experiences.
               </p>
 
-              <p>
-                My design background helps me care about layout, spacing, color,
-                hierarchy, and how users actually experience a product.
-              </p>
             </div>
           </div>
 
           <aside className="w-full max-w-[500px] lg:justify-self-start">
-            <div className="relative min-h-[400px] overflow-hidden rounded-lg bg-[#f8f7f4] shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+            <div className="relative min-h-[460px] overflow-hidden rounded-lg bg-[#f8f7f4] shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
               <Image
                 src="/floral/flower-pink.png"
                 alt=""

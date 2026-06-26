@@ -99,9 +99,9 @@ export default function Home() {
         {/* HERO */}
         <div className="relative z-20 mx-auto max-w-225 translate-y-6 text-center">
 
-          <p className="mb-10 text-[11px] font-semibold uppercase tracking-[0.5em] text-[#858585] sm:mb-12">
-            PORTFOLIO 2026
-          </p>
+          {/* <p className="mb-10 text-[11px] font-semibold uppercase tracking-[0.5em] text-[#858585] sm:mb-12">
+            MANISHA RAI
+          </p> */}
 
           <h1
             className="
@@ -116,10 +116,10 @@ export default function Home() {
               lg:text-[70px]
             "
           >
-            Build polished interfaces
+            Software Engineer
             <br />
             <span className="font-[560] tracking-[-0.048em]">
-              with code and design
+              with a designer&apos;s eye.
             </span>
           </h1>
 
@@ -136,8 +136,8 @@ export default function Home() {
             "
             style={{ marginTop: "1rem" }}
           >
-            Frontend-focused software engineer with backend fundamentals and a
-            graphic designer&apos;s eye for layout, color, and detail.
+            I build digital products that combine thoughtful design with clean engineering.<br/>
+            Every project is created to be intuitive, scalable, and built to solve real problems.
           </p>
 
           <div

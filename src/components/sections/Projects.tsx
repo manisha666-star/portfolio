@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import { projects } from "@/data/projects";
 
 function ProjectPreview({ index }: { index: number }) {
@@ -96,10 +98,10 @@ export default function Projects() {
       <div className="mx-auto w-full max-w-[1510px]">
         {/* Header */}
         <div className="mx-auto max-w-[980px] text-center">
-          <h2 className="editorial-font text-[clamp(42px,3.25vw,64px)] font-semibold leading-[1.02] tracking-[-0.035em] text-[#191919]">
+          <h2 className="editorial-font text-[clamp(42px,3.25vw,64px)] font-semibold leading-[1.3] tracking-[-0.035em] text-[#191919]">
             Projects built with
             <br />
-            code, design, and purpose
+            <span>code, design, and purpose</span>
           </h2>
 
           <p className="mx-auto mt-9 max-w-[900px] text-[clamp(18px,1.25vw,25px)] leading-[1.6] tracking-[-0.02em] text-[#747474]" style={{ marginTop: "25px" }}>
@@ -118,11 +120,21 @@ export default function Projects() {
             <article key={project.title} className="flex flex-col">
               {/* Image */}
               <div className="relative aspect-[1.33] overflow-hidden rounded-[30px] bg-white shadow-[0_1px_0_rgba(255,255,255,0.9)]">
-                <ProjectPreview index={index} />
+                {project.image ? (
+                  <Image
+                    src={project.image}
+                    alt={`${project.title} preview`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover"
+                  />
+                ) : (
+                  <ProjectPreview index={index} />
+                )}
               </div>
 
               {/* Text */}
-              <div style={{ marginTop: "56px" }}>
+              <div style={{ marginTop: "30px" }}>
                 <p className="display-font text-[18px] leading-none text-[#b3b3b3]">
                   {String(index + 1).padStart(2, "0")}
                 </p>
@@ -135,8 +147,15 @@ export default function Projects() {
                 </h3>
 
                 <p
+                  className="display-font text-[clamp(13px,0.86vw,16px)] font-semibold uppercase leading-[1.6] tracking-[0.12em] text-[#9a8f88]"
+                  style={{ marginTop: "18px" }}
+                >
+                  {project.type}
+                </p>
+
+                <p
                   className="text-[clamp(18px,1.08vw,22px)] leading-[1.7] tracking-[-0.025em] text-[#777]"
-                  style={{ marginTop: "30px" }}
+                  style={{ marginTop: "22px" }}
                 >
                   {project.description}
                 </p>

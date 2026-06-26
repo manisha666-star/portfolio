@@ -22,7 +22,7 @@ export default function Navbar() {
             />
           </a>
 
-          <div className="hidden items-center gap-12 text-[15px] font-semibold text-[#515151] md:flex">
+          <div className="hidden items-center gap-12 text-[15px] font-normal text-[#515151] md:flex">
             <a
               href="#about"
               className="transition hover:text-black"
@@ -48,7 +48,7 @@ export default function Navbar() {
           <div className="flex items-center gap-5">
             <a
               href="#contact"
-              className="hidden text-[15px] font-semibold text-[#515151] transition hover:text-black sm:inline"
+              className="hidden text-[15px] font-normal text-[#515151] transition hover:text-black sm:inline"
             >
               Contact
             </a>
@@ -67,7 +67,7 @@ export default function Navbar() {
                 bg-white
                 px-6
                 text-[14px]
-                font-semibold
+                font-normal
                 text-[#222]
                 shadow-[0_1px_10px_rgba(0,0,0,0.035)]
                 transition
