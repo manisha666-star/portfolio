@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-black/5 bg-white/95 backdrop-blur-md">
@@ -10,16 +12,14 @@ export default function Navbar() {
             className="flex items-center gap-4 text-[#111]"
             aria-label="Manisha Rai home"
           >
-            <span
-              aria-hidden="true"
-              className="flex h-8 w-10 items-end gap-1"
-            >
-              <span className="h-8 w-[17px] rounded-t-full bg-[var(--brand-maroon)]" />
-              <span className="h-8 w-[17px] rounded-t-full bg-[var(--brand-maroon)]" />
-            </span>
-            <span className="brand-font text-[28px] font-semibold leading-none tracking-[-0.05em] sm:text-[32px]">
-              Manisha
-            </span>
+            <Image
+              src="/logo.png"
+              alt="Manisha Rai logo"
+              width={650}
+              height={347}
+              className="h-10 w-auto"
+              priority
+            />
           </a>
 
           <div className="hidden items-center gap-12 text-[15px] font-semibold text-[#515151] md:flex">
