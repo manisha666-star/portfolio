@@ -117,9 +117,9 @@ export default function Experience() {
                   </p>
                 ) : null}
 
-                {"bullets" in item ? (
-                  <ul className="mt-8 space-y-2 text-[clamp(17px,1vw,20px)] leading-[1.65] tracking-[-0.02em] text-[#252525]">
-                    {item.bullets.map((bullet) => (
+                {item.bullets?.length ? (
+                  <ul className="mt-8 space-y-2 text-[clamp(17px,1vw,20px)] leading-[1.65]">
+                    {item.bullets.map(bullet => (
                       <li key={bullet}>· {bullet}</li>
                     ))}
                   </ul>
