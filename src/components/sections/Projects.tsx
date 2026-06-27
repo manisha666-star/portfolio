@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { projects } from "@/data/projects";
 
@@ -97,8 +98,8 @@ export default function Projects() {
     >
       <div className="mx-auto w-full max-w-[1510px]">
         {/* Header */}
-        <div className="mx-auto max-w-[980px] text-center">
-          <h2 className="editorial-font text-[clamp(42px,3.25vw,64px)] font-semibold leading-[1.3] tracking-[-0.035em] text-[#191919]">
+        <div className="mx-auto flex max-w-[980px] flex-col items-center text-center">
+          <h2 className="editorial-font text-center text-[clamp(42px,3.25vw,64px)] font-semibold leading-[1.3] tracking-[-0.035em] text-[#191919]">
             Projects built with
             <br />
             <span>code, design, and purpose</span>
@@ -133,15 +134,14 @@ export default function Projects() {
                 )}
               </div>
 
-              {/* Text */}
               <div style={{ marginTop: "30px" }}>
-                <p className="display-font text-[18px] leading-none text-[#b3b3b3]">
+                {/* <p className="display-font text-[18px] leading-none text-[#b3b3b3]">
                   {String(index + 1).padStart(2, "0")}
-                </p>
+                </p> */}
 
                 <h3
                   className="editorial-font text-[clamp(25px,1.4vw,28px)] font-semibold leading-[1.05] tracking-[-0.03em] text-[#161616]"
-                  style={{ marginTop: "30px" }}
+                  style={{ marginTop: "22px" }}
                 >
                   {project.title}
                 </h3>
@@ -159,6 +159,15 @@ export default function Projects() {
                 >
                   {project.description}
                 </p>
+
+                {project.link ? (
+                  <Link
+                    href={project.link}
+                    className="mt-7 inline-flex items-center gap-2 text-[clamp(16px,0.95vw,18px)] font-semibold tracking-[-0.02em] text-[#161616] transition hover:text-[#8b1e2d]"
+                  >
+                    View case study <span aria-hidden="true">→</span>
+                  </Link>
+                ) : null}
               </div>
             </article>
           ))}

@@ -5,6 +5,7 @@ import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Design from "@/components/sections/Design";
 import Experience from "@/components/sections/Experience";
+import Education from "@/components/sections/Education";
 import Contact from "@/components/sections/Contact";
 
 const skillTokens = [
@@ -194,7 +195,7 @@ export default function Home() {
         </div>
       </section>
 
-      <div aria-hidden="true" className="h-12 sm:h-16 lg:h-24" />
+      <div aria-hidden="true" className="h-24 sm:h-26 lg:h-28" />
 
       <About />
 
@@ -203,6 +204,7 @@ export default function Home() {
       <Projects />
       <Design />
       <Experience />
+      <Education />
       <Contact />
     </main>
   );

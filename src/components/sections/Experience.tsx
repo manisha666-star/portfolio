@@ -47,7 +47,7 @@ export default function Experience() {
   return (
     <section
       id="experience"
-      className="overflow-hidden bg-white text-[#111]"
+      className="overflow-hidden bg-[#f7f7f5] text-[#111]"
       style={{
         paddingInline: "clamp(48px, 14vw, 286px)",
         paddingBlock: "190px 220px",
@@ -55,12 +55,12 @@ export default function Experience() {
     >
       <div className="mx-auto w-full max-w-[1510px]">
         {/* Header */}
-        <div className="mx-auto max-w-[980px] text-center">
-          <p className="mb-8 text-[11px] font-semibold uppercase tracking-[0.5em] text-[#858585]">
+        <div className="mx-auto flex max-w-[980px] flex-col items-center text-center">
+          <p className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.5em] text-[#858585]">
             EXPERIENCE
           </p>
 
-          <h2 className="editorial-font text-[clamp(42px,3.25vw,64px)] font-semibold leading-[1.02] tracking-[-0.035em] text-[#191919]">
+          <h2 className="editorial-font text-center text-[clamp(42px,3.25vw,64px)] font-semibold leading-[1.02] tracking-[-0.035em] text-[#191919]">
             A journey through design,
             <br />
             development, and engineering.

@@ -70,7 +70,7 @@ export default function About() {
 
         <div aria-hidden="true" style={{ height: "60px" }} />
 
-        <div className="grid items-start gap-16 lg:grid-cols-[560px_420px]">
+        <div className="grid gap-16 lg:grid-cols-[560px_420px] lg:items-stretch">
           <div>
             <div className="flex gap-6">
               <div className="mt-2 h-[104px] w-[8px] shrink-0 bg-[#8b1e2d]" />
@@ -85,7 +85,7 @@ export default function About() {
 
                 I&apos;m Manisha Rai, currently pursuing a Master&apos;s in Software Engineering at EPITA, France. Before transitioning into software engineering, I spent over three years working as a professional graphic designer, where I developed a strong foundation in visual communication, user experience, and problem-solving.
               </p>
-
+              <br/>
               <p>
                 Today, I focus on building modern web applications with React, Next.js, TypeScript, and Node.js while continuously expanding my backend and cloud development skills. My design background influences every project I build, helping me create products that balance clean engineering with thoughtful user experiences.
               </p>
@@ -93,14 +93,14 @@ export default function About() {
             </div>
           </div>
 
-          <aside className="w-full max-w-[500px] lg:justify-self-start">
-            <div className="relative min-h-[460px] overflow-hidden rounded-lg bg-[#f8f7f4] shadow-[0_24px_70px_rgba(0,0,0,0.08)]">
+          <aside className="w-full max-w-[500px] lg:h-full lg:justify-self-start">
+            <div className="relative aspect-[0.78] overflow-hidden rounded-[30px] bg-[#f8f7f4] shadow-[0_24px_70px_rgba(0,0,0,0.08)] lg:aspect-auto lg:h-full">
               <Image
-                src="/floral/flower-pink.png"
+                src="/About 1.png"
                 alt=""
                 fill
                 sizes="(max-width: 1024px) 100vw, 360px"
-                className="object-contain p-10"
+                className="object-cover"
               />
             </div>
           </aside>

@@ -4,31 +4,35 @@ export type Project = {
   description: string;
   image?: string;
   link?: string;
+  slug: string;
 };
 
 export const projects: Project[] = [
   {
-    title: "ParkWise — Smart Parking & Real-Time Monitoring Platform",
-    type: "React.js, FastAPI, Python, PostgreSQL, Supabase, Leaflet.js",
+    title: "ParkWise",
+    type: "React.js, FastAPI, Python, PostgreSQL, Supabase",
     description:
-      "A full-stack smart parking platform that helps users find nearby parking, view real-time availability, explore facilities on interactive maps, and make better urban parking decisions.",
+      "Smart parking platform for finding nearby parking, checking real-time availability, and making better urban parking decisions.",
     image: "/parkwise.png",
-    link: "#",
+    link: "/projects/parkwise",
+    slug: "parkwise",
   },
   {
     title: "GEMS School",
-    type: "Figma, Adobe Creative Suite, UI/UX Design, Content Strategy",
+    type: "UI/UX Design, Website Design, Content Strategy",
     description:
-      "A school website design project focused on accessibility, usability, and clear content organization, creating an intuitive platform for parents, students, and the wider school community.",
+      "School website redesign focused on accessibility, clear navigation, and better communication for parents and students.",
     image: "/gems.png",
-    link: "#",
+    link: "/projects/gems-school",
+    slug: "gems-school",
   },
   {
     title: "Thunderbolts Cup 2023",
-    type: "Adobe Creative Suite, Adobe Illustrator, Branding, Motion Graphics",
+    type: "Event Branding, Illustrator, Motion Graphics",
     description:
-      "A complete creative direction and event branding project for one of GEMS School's largest interschool sporting events, covering logo identity, team jerseys, print materials, social media creatives, and promotional media.",
+      "Complete event identity for one of GEMS School's largest interschool sporting events.",
     image: "/Thunderbolts.png",
-    link: "#",
+    link: "/projects/thunderbolts-cup",
+    slug: "thunderbolts-cup",
   },
 ];

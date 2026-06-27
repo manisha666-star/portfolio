@@ -39,12 +39,12 @@ export default function Design() {
       }}
     >
       <div className="mx-auto w-full max-w-[1510px]">
-        <div className="mx-auto max-w-[980px] text-center">
-          <p className="mb-8 text-[11px] font-semibold uppercase tracking-[0.5em] text-[#858585]">
+        <div className="mx-auto flex max-w-[980px] flex-col items-center text-center">
+          <p className="mb-8 text-center text-[11px] font-semibold uppercase tracking-[0.5em] text-[#858585]">
             Design Work
           </p>
 
-          <h2 className="editorial-font text-[clamp(42px,3.25vw,64px)] font-semibold leading-[1.02] tracking-[-0.035em] text-[#191919]" style={{ marginTop: "12px" }}>
+          <h2 className="editorial-font text-center text-[clamp(42px,3.25vw,64px)] font-semibold leading-[1.02] tracking-[-0.035em] text-[#191919]" style={{ marginTop: "12px" }}>
             Visual stories shaped
             <br />
             with clarity and detail.
