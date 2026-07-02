@@ -90,7 +90,7 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="overflow-hidden bg-[#f7f7f5] text-[#111]"
+      className="scroll-mt-28 overflow-hidden bg-[#f7f7f5] text-[#111] md:scroll-mt-32"
       style={{
         paddingInline: "clamp(48px, 14vw, 286px)",
         paddingBlock: "190px 220px",
@@ -127,7 +127,7 @@ export default function Projects() {
                     alt={`${project.title} preview`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className="object-cover"
+                    className={project.slug === "gems-school" ? "object-contain p-4" : "object-cover"}
                   />
                 ) : (
                   <ProjectPreview index={index} />

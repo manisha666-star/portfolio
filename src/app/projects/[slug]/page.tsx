@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import BackToProjectsLink from "@/components/navigation/BackToProjectsLink";
 import {
   getProjectCaseStudy,
   projectCaseStudies,
@@ -47,200 +47,297 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
     projectCaseStudies.findIndex((item) => item.slug === project.slug) + 1,
   ).padStart(2, "0");
 
+  return <ProjectShowcaseCaseStudy project={project} projectNumber={projectNumber} />;
+}
+
+function ProjectShowcaseCaseStudy({
+  project,
+  projectNumber,
+}: {
+  project: NonNullable<ReturnType<typeof getProjectCaseStudy>>;
+  projectNumber: string;
+}) {
+  const details = getShowcaseDetails(project.slug);
+
   return (
-    <main className="min-h-screen bg-[#f4f1ec] text-[#111]">
-      <article
-        className="mx-auto w-full max-w-[1180px]"
-        style={{
-          paddingInline: "clamp(24px, 7vw, 96px)",
-          paddingBlock: "48px 132px",
-        }}
-      >
-        <Link
-          href="/#projects"
-          className="inline-flex text-[14px] font-semibold tracking-[-0.01em] text-[#6f6b65] transition hover:text-[#8b1e2d]"
+    <main className={`parkwise-case-page ${details.themeClass}`}>
+      <section className="parkwise-hero">
+        <div className="parkwise-hero-copy">
+          <BackToProjectsLink />
+
+          <div className="parkwise-title-row">
+            <h1>{project.title}</h1>
+            <span className="parkwise-status-dot" />
+            <span className="parkwise-status-text">Project</span>
+          </div>
+
+          <div className="parkwise-meta">
+            <ProjectFact
+              label="Case Study"
+              value={projectNumber}
+              noWrap
+              variant="parkwise"
+            />
+            <span>/</span>
+            <ProjectFact
+              label="Year"
+              value={project.year}
+              noWrap
+              variant="parkwise"
+            />
+            <span>/</span>
+            <ProjectFact
+              label="Category"
+              value={project.category}
+              variant="parkwise"
+            />
+          </div>
+
+          <p className="parkwise-summary">{project.summary}</p>
+        </div>
+
+        <div
+          className="parkwise-hero-visual"
+          aria-label={`${project.title} project preview`}
         >
-          ← Back to projects
-        </Link>
-
-        <header className="pt-16">
-          <h1 className="text-[clamp(58px,8vw,116px)] font-semibold leading-[0.9] tracking-[-0.075em] text-[#101010]">
-            {project.title}
-          </h1>
-
-          <div className="mt-20 grid gap-10 md:grid-cols-[minmax(0,0.95fr)_minmax(320px,0.75fr)] md:items-end">
-            <div className="grid gap-8 sm:grid-cols-[1fr_auto_1fr_auto_1fr] sm:items-end">
-              <ProjectFact label="Project" value={`Case Study ${projectNumber}`} />
-              <span className="hidden text-[#9d9890] sm:block">/</span>
-              <ProjectFact label="Year" value={project.year} />
-              <span className="hidden text-[#9d9890] sm:block">/</span>
-              <ProjectFact label="Category" value={project.category} />
-            </div>
-
-            <p className="max-w-[480px] text-[clamp(17px,1.05vw,20px)] leading-[1.65] tracking-[-0.025em] text-[#383632] md:justify-self-end">
-              {project.summary}
-            </p>
-          </div>
-        </header>
-
-        <HeroImage image={project.image} title={project.title} />
-
-        <div className="mx-auto mt-14 max-w-[940px] space-y-16 md:mt-20 md:space-y-20">
-          <EditorialSection title="About the Project">
-            <p>{project.overview}</p>
-            <p>{project.problem}</p>
-          </EditorialSection>
-
-          <EditorialSection title="Designed for Faster Decisions">
-            <p>{project.role}</p>
-            <BulletList items={project.features} />
-          </EditorialSection>
-
-          <EditorialSection title="Tech and Tools">
-            <TagList items={project.tools} />
-          </EditorialSection>
-
-          <EditorialSection title="Process and Implementation">
-            <ProcessList items={project.process} />
-          </EditorialSection>
-
-          <div className="grid gap-6 md:grid-cols-2">
-            <ProjectImageCard image={project.image} title="Main interface" />
-            <ProjectImageCard image={project.image} title="Product flow" />
-          </div>
-
-          <EditorialSection title="Challenges">
-            <p>{project.challenges}</p>
-          </EditorialSection>
-
-          <EditorialSection title="What I Learned">
-            <p>{project.learning}</p>
-          </EditorialSection>
-
-          <div className="overflow-hidden rounded-[32px] bg-[#e8e3da]">
-            <div className="relative aspect-[1.72] min-h-[260px]">
+          <span className="parkwise-green-disc" />
+          <span className="parkwise-dot-pattern" />
+          {project.slug === "parkwise" ? (
+            <div className="parkwise-laptop-shot" />
+          ) : (
+            <div className="project-hero-image-card">
               <Image
                 src={project.image}
-                alt={`${project.title} closing screenshot`}
+                alt={`${project.title} project preview`}
                 fill
-                sizes="(max-width: 1024px) 100vw, 940px"
-                className="object-cover"
+                priority
+                sizes="(max-width: 980px) 88vw, 540px"
+                className={project.slug === "gems-school" ? "object-contain" : "object-cover"}
               />
             </div>
-          </div>
+          )}
+          <p>{project.title} project preview</p>
         </div>
-      </article>
+      </section>
+
+      <section className="parkwise-content-grid parkwise-about-band">
+        <article className="parkwise-text-block">
+          <SectionTitle>About the Project</SectionTitle>
+          <p>{project.overview}</p>
+          <p>{project.problem}</p>
+        </article>
+
+        <article className="parkwise-decision-card">
+          <div className="parkwise-card-icon">{details.cardIcon}</div>
+          <div>
+            <h2>{details.roleTitle}</h2>
+            <p>{project.role}</p>
+            <ul>
+              {project.features.map((feature) => (
+                <li key={feature}>{feature}</li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section className="parkwise-section">
+        <SectionTitle>Tech and Tools</SectionTitle>
+        <div className="parkwise-tool-grid">
+          {project.tools.map((tool, index) => (
+            <div className="parkwise-tool-card" key={tool}>
+              <span className={`parkwise-tool-icon ${details.toolTones[index % details.toolTones.length]}`}>
+                {getToolMark(tool)}
+              </span>
+              <span>{tool}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="parkwise-section parkwise-process-section">
+        <SectionTitle>Process and Implementation</SectionTitle>
+        <ol className="parkwise-process">
+          {project.process.map((step, index) => (
+            <li key={step}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <p>{step}</p>
+            </li>
+          ))}
+        </ol>
+      </section>
+
+      <section className="parkwise-visual-grid">
+        <figure className="parkwise-image-panel parkwise-main-panel">
+          <figcaption>{details.visualOneTitle}</figcaption>
+          {project.slug === "parkwise" ? (
+            <div className="parkwise-reference-crop parkwise-reference-main" />
+          ) : (
+            <ProjectPanelImage project={project} position={details.visualOnePosition} />
+          )}
+        </figure>
+        <figure className="parkwise-image-panel parkwise-flow-panel">
+          <figcaption>{details.visualTwoTitle}</figcaption>
+          {project.slug === "parkwise" ? (
+            <div className="parkwise-reference-crop parkwise-reference-flow" />
+          ) : (
+            <ProjectPanelImage project={project} position={details.visualTwoPosition} />
+          )}
+        </figure>
+      </section>
+
+      <section className="parkwise-insight-grid">
+        <article>
+          <span className="parkwise-insight-icon parkwise-flag">⚑</span>
+          <div>
+            <h2>Challenges</h2>
+            <p>{project.challenges}</p>
+          </div>
+        </article>
+        <article>
+          <span className="parkwise-insight-icon parkwise-bulb">●</span>
+          <div>
+            <h2>What I Learned</h2>
+            <p>{project.learning}</p>
+          </div>
+        </article>
+      </section>
     </main>
   );
 }
 
-function ProjectFact({ label, value }: { label: string; value: string }) {
+function SectionTitle({ children }: { children: React.ReactNode }) {
+  return <h2 className="parkwise-section-title">{children}</h2>;
+}
+
+function ProjectPanelImage({
+  project,
+  position,
+}: {
+  project: NonNullable<ReturnType<typeof getProjectCaseStudy>>;
+  position: string;
+}) {
+  return (
+    <div className="project-panel-image">
+      <Image
+        src={project.image}
+        alt={`${project.title} ${position} preview`}
+        fill
+        sizes="(max-width: 980px) 88vw, 560px"
+        className={`${project.slug === "gems-school" ? "object-contain" : "object-cover"} ${position}`}
+      />
+    </div>
+  );
+}
+
+function getShowcaseDetails(slug: string) {
+  if (slug === "gems-school") {
+    return {
+      cardIcon: "✦",
+      roleTitle: "Designed for Clearer Communication",
+      themeClass: "project-theme-gems",
+      toolTones: [
+        "project-tool-rose",
+        "project-tool-gold",
+        "project-tool-blue",
+        "project-tool-violet",
+        "project-tool-green",
+      ],
+      visualOnePosition: "object-top",
+      visualOneTitle: "Website interface",
+      visualTwoPosition: "object-center",
+      visualTwoTitle: "Content system",
+    };
+  }
+
+  if (slug === "thunderbolts-cup") {
+    return {
+      cardIcon: "⚡",
+      roleTitle: "Designed for a Strong Event Identity",
+      themeClass: "project-theme-thunderbolts",
+      toolTones: [
+        "project-tool-gold",
+        "project-tool-rose",
+        "project-tool-violet",
+        "project-tool-blue",
+      ],
+      visualOnePosition: "object-center",
+      visualOneTitle: "Brand identity",
+      visualTwoPosition: "object-bottom",
+      visualTwoTitle: "Event assets",
+    };
+  }
+
+  return {
+    cardIcon: "◎",
+    roleTitle: "Designed for Faster Decisions",
+    themeClass: "project-theme-parkwise",
+    toolTones: [
+      "parkwise-tool-cyan",
+      "parkwise-tool-teal",
+      "parkwise-tool-yellow",
+      "parkwise-tool-blue",
+      "parkwise-tool-green",
+    ],
+    visualOnePosition: "object-center",
+    visualOneTitle: "Main interface",
+    visualTwoPosition: "object-center",
+    visualTwoTitle: "Product flow",
+  };
+}
+
+function getToolMark(tool: string) {
+  const normalized = tool.toLowerCase();
+
+  if (normalized.includes("react")) return "⚛";
+  if (normalized.includes("fastapi")) return "ϟ";
+  if (normalized.includes("python")) return "Py";
+  if (normalized.includes("postgres")) return "Pg";
+  if (normalized.includes("supabase")) return "S";
+  if (normalized.includes("figma")) return "F";
+  if (normalized.includes("illustrator")) return "Ai";
+  if (normalized.includes("motion")) return "M";
+  if (normalized.includes("content")) return "C";
+  if (normalized.includes("website")) return "W";
+  if (normalized.includes("branding")) return "B";
+  if (normalized.includes("ui/ux")) return "UX";
+  if (normalized.includes("adobe")) return "A";
+
+  return tool.slice(0, 2);
+}
+
+function ProjectFact({
+  label,
+  value,
+  noWrap = false,
+  variant = "default",
+}: {
+  label: string;
+  value: string;
+  noWrap?: boolean;
+  variant?: "default" | "parkwise";
+}) {
+  if (variant === "parkwise") {
+    return (
+      <div className="parkwise-fact">
+        <p>{label}</p>
+        <p className={noWrap ? "sm:whitespace-nowrap" : ""}>{value}</p>
+      </div>
+    );
+  }
+
   return (
     <div className="min-w-0">
       <p className="text-[11px] font-medium tracking-[-0.01em] text-[#8a857d]">
         {label}
       </p>
-      <p className="mt-2 text-[14px] font-semibold leading-[1.35] tracking-[-0.02em] text-[#161616]">
+      <p
+        className={`mt-3 text-[14px] font-semibold leading-[1.45] tracking-[-0.02em] text-[#161616] ${
+          noWrap ? "sm:whitespace-nowrap" : ""
+        }`}
+      >
         {value}
       </p>
-    </div>
-  );
-}
-
-function HeroImage({ image, title }: { image: string; title: string }) {
-  return (
-    <div className="mt-10 overflow-hidden rounded-[28px] bg-[#e8e3da] shadow-[0_26px_80px_rgba(54,45,34,0.12)] md:mt-12">
-      <div className="relative aspect-[1.48] min-h-[320px]">
-        <Image
-          src={image}
-          alt={`${title} project preview`}
-          fill
-          priority
-          sizes="(max-width: 1024px) 100vw, 1060px"
-          className="object-cover"
-        />
-      </div>
-    </div>
-  );
-}
-
-function EditorialSection({
-  title,
-  children,
-}: {
-  title: string;
-  children: React.ReactNode;
-}) {
-  return (
-    <section>
-      <h2 className="max-w-[720px] text-[clamp(34px,4vw,58px)] font-semibold leading-[1.02] tracking-[-0.06em] text-[#101010]">
-        {title}
-      </h2>
-      <div className="mt-6 max-w-[720px] space-y-5 text-[clamp(16px,1vw,19px)] leading-[1.75] tracking-[-0.02em] text-[#383632]">
-        {children}
-      </div>
-    </section>
-  );
-}
-
-function TagList({ items }: { items: string[] }) {
-  return (
-    <div className="flex flex-wrap gap-3">
-      {items.map((item) => (
-        <span
-          key={item}
-          className="rounded-full border border-[#d8d1c6] bg-[#fbfaf7] px-4 py-2 text-[14px] font-semibold text-[#4d4942]"
-        >
-          {item}
-        </span>
-      ))}
-    </div>
-  );
-}
-
-function BulletList({ items }: { items: string[] }) {
-  return (
-    <ul className="grid gap-3">
-      {items.map((item) => (
-        <li key={item} className="flex gap-4">
-          <span className="mt-[0.72em] h-2 w-2 shrink-0 rounded-full bg-[#8b1e2d]" />
-          <span>{item}</span>
-        </li>
-      ))}
-    </ul>
-  );
-}
-
-function ProcessList({ items }: { items: string[] }) {
-  return (
-    <ol className="grid gap-5">
-      {items.map((item, index) => (
-        <li
-          key={item}
-          className="grid gap-3 border-t border-[#d8d1c6] pt-5 sm:grid-cols-[68px_1fr]"
-        >
-          <span className="text-[14px] font-semibold text-[#9a9287]">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <span>{item}</span>
-        </li>
-      ))}
-    </ol>
-  );
-}
-
-function ProjectImageCard({ image, title }: { image: string; title: string }) {
-  return (
-    <div className="overflow-hidden rounded-[24px] bg-[#e8e3da] shadow-[0_18px_50px_rgba(54,45,34,0.10)]">
-      <div className="relative aspect-[1.14]">
-        <Image
-          src={image}
-          alt={title}
-          fill
-          sizes="(max-width: 768px) 100vw, 455px"
-          className="object-cover"
-        />
-      </div>
     </div>
   );
 }
