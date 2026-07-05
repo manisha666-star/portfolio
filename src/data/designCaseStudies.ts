@@ -2,6 +2,7 @@ export type DesignGalleryItem = {
   title: string;
   image: string;
   alt: string;
+  link?: string;
 };
 
 export type DesignGalleryGroup = {
@@ -26,7 +27,7 @@ export type DesignCaseStudy = {
   results: string;
 };
 
-const imageCycle = ["/logo.png", "/gems.png", "/Thunderbolts.png", "/parkwise.png"];
+const imageCycle = ["/manisha.png", "/Thunderbolts.png", "/wdl.png", "/parkwise.png"];
 
 function makeItems(groupTitle: string, imageOffset = 0): DesignGalleryItem[] {
   return [1, 2, 3].map((number) => {
@@ -47,7 +48,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
     category: "Logos / Guidelines / Brand Applications",
     summary:
       "Identity systems built around logos, brand guidelines, business cards, and applied brand touchpoints.",
-    image: "/logo.png",
+    image: "/Branding.png",
     year: "2024",
     overview:
       "Brand Identity brings together visual systems designed to make organizations, campaigns, and school communications feel consistent, recognizable, and polished.",
@@ -67,26 +68,55 @@ export const designCaseStudies: DesignCaseStudy[] = [
         title: "Logos",
         description:
           "Logo marks, lockups, monograms, and identity explorations.",
-        items: makeItems("Logo", 0),
+        items: [
+          {
+            title: "Manisha Rai Portfolio",
+            image: "/Mr LOGO.png",
+            alt: "Manisha Rai portfolio brand identity preview",
+          },
+          {
+            title: "Thunderbolts Cup",
+            image: "/Thunderbolts.png",
+            alt: "Thunderbolts Cup logo preview",
+          },
+          {
+            title: "Women's Deadlift Competition",
+            image: "/wdl.png",
+            alt: "Logo design preview 3",
+          },
+        ],
       },
       {
         title: "Brand Guidelines",
         description:
           "Color, typography, spacing, and usage rules for consistent brand presentation.",
-        items: makeItems("Brand Guideline", 1),
+        items: [
+          {
+            title: "Thunderbolts Cup Brand Guidelines",
+            image: "/tbc guidelines.png",
+            alt: "Thunderbolts Cup brand guidelines preview",
+            link: "https://drive.google.com/file/d/1eGPGcyK_bOw2yWOIh35TRIr4b0y5ksXu/view",
+          },
+        ],
       },
       {
         title: "Business Cards",
         description:
           "Professional card layouts and identity touchpoints for print use.",
-        items: makeItems("Business Card", 2),
+        items: [
+          {
+            title: "Business Card GEMS school",
+            image: "/VC sample 3.jpg",
+            alt: "Business Card GEMS school preview",
+          },
+        ],
       },
-      {
-        title: "Brand Applications",
-        description:
-          "Applied brand visuals across stationery, mockups, and campaign surfaces.",
-        items: makeItems("Brand Application", 3),
-      },
+      // {
+      //   title: "Brand Applications",
+      //   description:
+      //     "Applied brand visuals across stationery, mockups, and campaign surfaces.",
+      //   items: makeItems("Brand Application", 3),
+      // },
     ],
     results:
       "The collection shows how identity work can move from a logo into a flexible visual system.",

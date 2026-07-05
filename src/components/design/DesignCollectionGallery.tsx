@@ -67,13 +67,51 @@ export default function DesignCollectionGallery({
               <p>{group.description}</p>
             </div>
 
-            <div className="design-thumbnail-grid">
+            <div
+              className={`design-thumbnail-grid${
+                group.items.length === 1 ? " design-thumbnail-grid-single" : ""
+              }`}
+            >
               {group.items.map((item) => {
                 const itemIndex = items.findIndex(
                   (galleryItem) =>
                     galleryItem.title === item.title &&
                     galleryItem.groupTitle === group.title,
                 );
+
+                const thumbnailContent = (
+                  <>
+                    <span className="design-thumbnail-image">
+                      <Image
+                        src={item.image}
+                        alt={item.alt}
+                        fill
+                        sizes={
+                          group.items.length === 1
+                            ? "(max-width: 980px) 100vw, 720px"
+                            : "(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 260px"
+                        }
+                        className={getImageClass(item.image)}
+                      />
+                    </span>
+                    <span>{item.title}</span>
+                  </>
+                );
+
+                if (item.link) {
+                  return (
+                    <a
+                      className="design-thumbnail"
+                      href={item.link}
+                      key={`${group.title}-${item.title}`}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={`Open ${item.title}`}
+                    >
+                      {thumbnailContent}
+                    </a>
+                  );
+                }
 
                 return (
                   <button
@@ -83,16 +121,7 @@ export default function DesignCollectionGallery({
                     onClick={() => setActiveIndex(itemIndex)}
                     aria-label={`Open ${item.title}`}
                   >
-                    <span className="design-thumbnail-image">
-                      <Image
-                        src={item.image}
-                        alt={item.alt}
-                        fill
-                        sizes="(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 260px"
-                        className={getImageClass(item.image)}
-                      />
-                    </span>
-                    <span>{item.title}</span>
+                    {thumbnailContent}
                   </button>
                 );
               })}
@@ -173,6 +202,6 @@ export default function DesignCollectionGallery({
 }
 
 function getImageClass(image: string) {
-  if (image.includes("logo")) return "object-contain p-8";
+  if (image.includes("logo") || image.includes("brand")) return "object-contain p-8";
   return "object-contain p-4";
 }

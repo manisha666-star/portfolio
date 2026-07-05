@@ -61,10 +61,10 @@ export default async function DesignCaseStudyPage({ params }: DesignPageProps) {
             alt={`${project.title} preview`}
             fill
             priority
-            sizes="(max-width: 980px) 90vw, 520px"
+            sizes="(max-width: 1000px) 90vw, 520px"
             className={
               project.slug === "brand-identity"
-                ? "object-contain p-12"
+                ? "object-cover object-top"
                 : "object-contain p-8"
             }
           />
