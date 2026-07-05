@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import BackToProjectsLink from "@/components/navigation/BackToProjectsLink";
 import {
@@ -40,6 +40,12 @@ export default async function ProjectCaseStudyPage({ params }: ProjectPageProps)
   const project = getProjectCaseStudy(slug);
 
   if (!project) {
+    const designRedirect = getMovedDesignRedirect(slug);
+
+    if (designRedirect) {
+      redirect(designRedirect);
+    }
+
     notFound();
   }
 
@@ -68,7 +74,7 @@ function ProjectShowcaseCaseStudy({
           <div className="parkwise-title-row">
             <h1>{project.title}</h1>
             <span className="parkwise-status-dot" />
-            <span className="parkwise-status-text">Project</span>
+            <span className="parkwise-status-text">Engineering</span>
           </div>
 
           <div className="parkwise-meta">
@@ -104,7 +110,7 @@ function ProjectShowcaseCaseStudy({
           <span className="parkwise-dot-pattern" />
           {project.slug === "parkwise" ? (
             <div className="parkwise-laptop-shot" />
-          ) : (
+          ) : project.image ? (
             <div className="project-hero-image-card">
               <Image
                 src={project.image}
@@ -112,8 +118,12 @@ function ProjectShowcaseCaseStudy({
                 fill
                 priority
                 sizes="(max-width: 980px) 88vw, 540px"
-                className={project.slug === "gems-school" ? "object-contain" : "object-cover"}
+                className="object-cover"
               />
+            </div>
+          ) : (
+            <div className="project-hero-placeholder">
+              <span>{project.title.slice(0, 2)}</span>
             </div>
           )}
           <p>{project.title} project preview</p>
@@ -122,19 +132,20 @@ function ProjectShowcaseCaseStudy({
 
       <section className="parkwise-content-grid parkwise-about-band">
         <article className="parkwise-text-block">
-          <SectionTitle>About the Project</SectionTitle>
+          <SectionTitle>Overview</SectionTitle>
           <p>{project.overview}</p>
+          <h3>Problem</h3>
           <p>{project.problem}</p>
         </article>
 
         <article className="parkwise-decision-card">
           <div className="parkwise-card-icon">{details.cardIcon}</div>
           <div>
-            <h2>{details.roleTitle}</h2>
-            <p>{project.role}</p>
+            <h2>Solution</h2>
+            <p>{project.solution}</p>
             <ul>
-              {project.features.map((feature) => (
-                <li key={feature}>{feature}</li>
+              {project.process.map((step) => (
+                <li key={step}>{step}</li>
               ))}
             </ul>
           </div>
@@ -142,7 +153,12 @@ function ProjectShowcaseCaseStudy({
       </section>
 
       <section className="parkwise-section">
-        <SectionTitle>Tech and Tools</SectionTitle>
+        <SectionTitle>Architecture</SectionTitle>
+        <p className="parkwise-architecture-copy">{project.architecture}</p>
+      </section>
+
+      <section className="parkwise-section">
+        <SectionTitle>Tech Stack</SectionTitle>
         <div className="parkwise-tool-grid">
           {project.tools.map((tool, index) => (
             <div className="parkwise-tool-card" key={tool}>
@@ -156,12 +172,12 @@ function ProjectShowcaseCaseStudy({
       </section>
 
       <section className="parkwise-section parkwise-process-section">
-        <SectionTitle>Process and Implementation</SectionTitle>
+        <SectionTitle>Features</SectionTitle>
         <ol className="parkwise-process">
-          {project.process.map((step, index) => (
-            <li key={step}>
+          {project.features.map((feature, index) => (
+            <li key={feature}>
               <span>{String(index + 1).padStart(2, "0")}</span>
-              <p>{step}</p>
+              <p>{feature}</p>
             </li>
           ))}
         </ol>
@@ -169,19 +185,31 @@ function ProjectShowcaseCaseStudy({
 
       <section className="parkwise-visual-grid">
         <figure className="parkwise-image-panel parkwise-main-panel">
-          <figcaption>{details.visualOneTitle}</figcaption>
+          <figcaption>Screenshots</figcaption>
           {project.slug === "parkwise" ? (
             <div className="parkwise-reference-crop parkwise-reference-main" />
+          ) : project.screenshots[0] ? (
+            <ProjectPanelImage
+              image={project.screenshots[0]}
+              title={project.title}
+              position={details.visualOnePosition}
+            />
           ) : (
-            <ProjectPanelImage project={project} position={details.visualOnePosition} />
+            <ProjectPanelPlaceholder title={project.title} />
           )}
         </figure>
         <figure className="parkwise-image-panel parkwise-flow-panel">
-          <figcaption>{details.visualTwoTitle}</figcaption>
+          <figcaption>Product flow</figcaption>
           {project.slug === "parkwise" ? (
             <div className="parkwise-reference-crop parkwise-reference-flow" />
+          ) : project.screenshots[1] ? (
+            <ProjectPanelImage
+              image={project.screenshots[1]}
+              title={project.title}
+              position={details.visualTwoPosition}
+            />
           ) : (
-            <ProjectPanelImage project={project} position={details.visualTwoPosition} />
+            <ProjectPanelPlaceholder title={project.title} />
           )}
         </figure>
       </section>
@@ -195,10 +223,22 @@ function ProjectShowcaseCaseStudy({
           </div>
         </article>
         <article>
-          <span className="parkwise-insight-icon parkwise-bulb">●</span>
+          <span className="parkwise-insight-icon parkwise-bulb">↗</span>
           <div>
-            <h2>What I Learned</h2>
-            <p>{project.learning}</p>
+            <h2>GitHub and Live Demo</h2>
+            <p>
+              {project.github ? (
+                <a href={project.github}>GitHub</a>
+              ) : (
+                "GitHub link coming soon"
+              )}
+              {" · "}
+              {project.liveDemo ? (
+                <a href={project.liveDemo}>Live demo</a>
+              ) : (
+                "Live demo coming soon"
+              )}
+            </p>
           </div>
         </article>
       </section>
@@ -211,30 +251,39 @@ function SectionTitle({ children }: { children: React.ReactNode }) {
 }
 
 function ProjectPanelImage({
-  project,
+  image,
+  title,
   position,
 }: {
-  project: NonNullable<ReturnType<typeof getProjectCaseStudy>>;
+  image: string;
+  title: string;
   position: string;
 }) {
   return (
     <div className="project-panel-image">
       <Image
-        src={project.image}
-        alt={`${project.title} ${position} preview`}
+        src={image}
+        alt={`${title} ${position} preview`}
         fill
         sizes="(max-width: 980px) 88vw, 560px"
-        className={`${project.slug === "gems-school" ? "object-contain" : "object-cover"} ${position}`}
+        className={`object-cover ${position}`}
       />
     </div>
   );
 }
 
+function ProjectPanelPlaceholder({ title }: { title: string }) {
+  return (
+    <div className="project-panel-placeholder">
+      <span>{title.slice(0, 2)}</span>
+    </div>
+  );
+}
+
 function getShowcaseDetails(slug: string) {
-  if (slug === "gems-school") {
+  if (slug === "weather-app") {
     return {
-      cardIcon: "✦",
-      roleTitle: "Designed for Clearer Communication",
+      cardIcon: "W",
       themeClass: "project-theme-gems",
       toolTones: [
         "project-tool-rose",
@@ -244,16 +293,15 @@ function getShowcaseDetails(slug: string) {
         "project-tool-green",
       ],
       visualOnePosition: "object-top",
-      visualOneTitle: "Website interface",
+      visualOneTitle: "Weather interface",
       visualTwoPosition: "object-center",
-      visualTwoTitle: "Content system",
+      visualTwoTitle: "Deployment workflow",
     };
   }
 
-  if (slug === "thunderbolts-cup") {
+  if (slug === "flight-reservation-system") {
     return {
-      cardIcon: "⚡",
-      roleTitle: "Designed for a Strong Event Identity",
+      cardIcon: "F",
       themeClass: "project-theme-thunderbolts",
       toolTones: [
         "project-tool-gold",
@@ -262,15 +310,14 @@ function getShowcaseDetails(slug: string) {
         "project-tool-blue",
       ],
       visualOnePosition: "object-center",
-      visualOneTitle: "Brand identity",
+      visualOneTitle: "Command-line flow",
       visualTwoPosition: "object-bottom",
-      visualTwoTitle: "Event assets",
+      visualTwoTitle: "Booking records",
     };
   }
 
   return {
     cardIcon: "◎",
-    roleTitle: "Designed for Faster Decisions",
     themeClass: "project-theme-parkwise",
     toolTones: [
       "parkwise-tool-cyan",
@@ -286,13 +333,28 @@ function getShowcaseDetails(slug: string) {
   };
 }
 
+function getMovedDesignRedirect(slug: string) {
+  const redirects: Record<string, string> = {
+    "gems-school": "/design/gems-school-marketing",
+    "thunderbolts-cup": "/design/thunderbolts-cup-2023",
+  };
+
+  return redirects[slug];
+}
+
 function getToolMark(tool: string) {
   const normalized = tool.toLowerCase();
 
   if (normalized.includes("react")) return "⚛";
+  if (normalized.includes("next")) return "N";
+  if (normalized.includes("typescript")) return "TS";
+  if (normalized.includes("node")) return "Nd";
   if (normalized.includes("fastapi")) return "ϟ";
   if (normalized.includes("python")) return "Py";
   if (normalized.includes("postgres")) return "Pg";
+  if (normalized.includes("sql")) return "SQL";
+  if (normalized.includes("java")) return "J";
+  if (normalized.includes("api")) return "API";
   if (normalized.includes("supabase")) return "S";
   if (normalized.includes("figma")) return "F";
   if (normalized.includes("illustrator")) return "Ai";

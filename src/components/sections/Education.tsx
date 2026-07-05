@@ -1,6 +1,7 @@
 const educationItems = [
   {
     id: "epita",
+    logo: "E",
     school: "EPITA",
     degree: "MSc Software Engineering",
     period: "2025 - Present",
@@ -14,6 +15,7 @@ const educationItems = [
   },
   {
     id: "iic",
+    logo: "IIC",
     school: "Itahari International College",
     degree: "BSc (Hons) Computing",
     period: "Completed",
@@ -48,41 +50,46 @@ export default function Education() {
           </h2>
         </div>
 
-        <div className="border-t border-neutral-200" style={{ marginTop: "96px" }}>
-          {educationItems.map((item) => (
-            <div
-              key={item.id}
-              className="grid gap-10 border-b border-neutral-200 py-14 md:grid-cols-[minmax(160px,0.25fr)_minmax(0,1fr)] lg:py-16"
-            >
-              <div>
-                <p className="text-[14px] font-semibold uppercase tracking-[0.18em] text-[#8b1e2d]">
-                  {item.period}
-                </p>
-              </div>
+        <div style={{ marginTop: "60px" }}>
+          {educationItems.map((item, index) => (
+            <div key={item.id}>
+              {index > 0 ? <div style={{ height: "50px" }} /> : null}
+              <div className="h-px bg-neutral-200" />
 
-              <div className="max-w-[980px]">
-                <h3 className="editorial-font text-[clamp(28px,1.7vw,34px)] font-semibold leading-[1.05] tracking-[-0.03em] text-[#161616]">
-                  {item.school}
-                </h3>
+              <div
+                className="grid gap-8 md:grid-cols-[80px_minmax(0,1fr)] md:gap-10"
+                style={{ paddingTop: "32-m px" }}
+              >
+                <div>
+                  <div className="flex h-16 w-16 items-center justify-center rounded-xl border border-[#dedbd5] bg-[#ebe8e3] text-[20px] font-semibold tracking-[-0.04em] text-[#8b1e2d] shadow-[0_1px_0_rgba(255,255,255,0.9)]">
+                    {item.logo}
+                  </div>
+                </div>
 
-                <p className="mt-4 text-[clamp(18px,1vw,22px)] font-medium leading-[1.45] tracking-[-0.02em] text-[#252525]">
-                  {item.degree} ({item.period})
-                </p>
+                <div className="max-w-[980px]">
+                  <h3 className="editorial-font text-[clamp(26px,1.9vw,38px)] font-semibold leading-[1.2] tracking-[-0.03em] text-[#161616]">
+                    {item.degree}
+                  </h3>
 
-                {item.location ? (
-                  <p className="mt-2 text-[clamp(17px,0.95vw,20px)] leading-[1.55] tracking-[-0.02em] text-[#6b6b6b]">
-                    {item.location}
+                  <p className="mt-6 text-[clamp(18px,1vw,22px)] font-medium leading-[1.75] tracking-[-0.02em] text-[#252525]">
+                    {item.school}
                   </p>
-                ) : null}
 
-                <ul className="mt-8 space-y-2 text-[clamp(17px,1vw,20px)] leading-[1.65] tracking-[-0.02em] text-[#252525]">
-                  {item.highlights.map((highlight) => (
-                    <li key={highlight}>· {highlight}</li>
-                  ))}
-                </ul>
+                  <p className="mt-4 text-[clamp(16px,0.95vw,20px)] leading-[1.85] tracking-[-0.02em] text-[#6b6b6b]">
+                    {item.period}
+                    {item.location ? ` · ${item.location}` : null}
+                  </p>
+
+                  <ul className="mt-12 max-w-[940px] space-y-6 text-[clamp(17px,1vw,20px)] leading-[2.05] tracking-[-0.02em] text-[#252525]">
+                    {item.highlights.map((highlight) => (
+                      <li key={highlight}>· {highlight}</li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
           ))}
+          <div className="mt-[50px] h-px bg-neutral-200" />
         </div>
       </div>
     </section>

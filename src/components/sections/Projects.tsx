@@ -4,7 +4,9 @@ import Link from "next/link";
 import { projects } from "@/data/projects";
 
 function ProjectPreview({ index }: { index: number }) {
-  if (index === 0) {
+  const variant = index % 3;
+
+  if (variant === 0) {
     return (
       <div className="flex h-full items-center justify-center p-[15%]">
         <div className="w-full max-w-[330px]">
@@ -31,7 +33,7 @@ function ProjectPreview({ index }: { index: number }) {
     );
   }
 
-  if (index === 1) {
+  if (variant === 1) {
     return (
       <div className="flex h-full items-center justify-center p-[12%]">
         <div className="w-full rounded-2xl bg-[#181d20] p-7 shadow-[0_14px_28px_rgba(0,0,0,0.16)]">
@@ -100,15 +102,14 @@ export default function Projects() {
         {/* Header */}
         <div className="mx-auto flex max-w-[980px] flex-col items-center text-center">
           <h2 className="editorial-font text-center text-[clamp(42px,3.25vw,64px)] font-semibold leading-[1.3] tracking-[-0.035em] text-[#191919]">
-            Projects built with
+            Software products built with
             <br />
-            <span>code, design, and purpose</span>
+            <span>engineering and purpose</span>
           </h2>
 
           <p className="mx-auto mt-9 max-w-[900px] text-[clamp(18px,1.25vw,25px)] leading-[1.6] tracking-[-0.02em] text-[#747474]" style={{ marginTop: "25px" }}>
-            A selection of projects where I combine frontend engineering,
-            product thinking, and visual design to build clean digital
-            experiences.
+            Software engineering projects focused on product thinking,
+            architecture, implementation, and practical user-facing features.
           </p>
         </div>
 
@@ -117,7 +118,7 @@ export default function Projects() {
           className="grid gap-y-28 max-md:grid-cols-1 md:grid-cols-2 md:gap-x-10 lg:grid-cols-3 lg:gap-x-[60px]"
           style={{ marginTop: "60px" }}
         >
-          {projects.slice(0, 3).map((project, index) => (
+          {projects.map((project, index) => (
             <article key={project.title} className="flex flex-col">
               {/* Image */}
               <div className="relative aspect-[1.33] overflow-hidden rounded-[30px] bg-white shadow-[0_1px_0_rgba(255,255,255,0.9)]">
@@ -127,7 +128,7 @@ export default function Projects() {
                     alt={`${project.title} preview`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    className={project.slug === "gems-school" ? "object-contain p-4" : "object-cover"}
+                    className="object-cover"
                   />
                 ) : (
                   <ProjectPreview index={index} />

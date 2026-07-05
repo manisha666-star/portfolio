@@ -18,21 +18,19 @@ export const projects: Project[] = [
     slug: "parkwise",
   },
   {
-    title: "GEMS School",
-    type: "UI/UX Design, Website Design, Content Strategy",
+    title: "Weather App",
+    type: "React, Node.js, Docker, GitHub Actions",
     description:
-      "School website redesign focused on accessibility, clear navigation, and better communication for parents and students.",
-    image: "/gems.png",
-    link: "/projects/gems-school",
-    slug: "gems-school",
+      "Full-stack weather application with real-time weather data, a responsive UI, and automated CI/CD deployment.",
+    link: "/projects/weather-app",
+    slug: "weather-app",
   },
   {
-    title: "Thunderbolts Cup 2023",
-    type: "Event Branding, Illustrator, Motion Graphics",
+    title: "Flight Reservation System",
+    type: "C++",
     description:
-      "Complete event identity for one of GEMS School's largest interschool sporting events.",
-    image: "/Thunderbolts.png",
-    link: "/projects/thunderbolts-cup",
-    slug: "thunderbolts-cup",
+      "Command-line flight reservation system with login, flight search, booking, CSV data storage, and input validation.",
+    link: "/projects/flight-reservation-system",
+    slug: "flight-reservation-system",
   },
 ];

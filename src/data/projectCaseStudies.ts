@@ -3,16 +3,19 @@ export type ProjectCaseStudy = {
   title: string;
   category: string;
   summary: string;
-  image: string;
+  image?: string;
   year: string;
   overview: string;
   problem: string;
-  role: string;
+  solution: string;
+  architecture: string;
   tools: string[];
   features: string[];
   process: string[];
   challenges: string;
-  learning: string;
+  screenshots: string[];
+  github?: string;
+  liveDemo?: string;
 };
 
 export const projectCaseStudies: ProjectCaseStudy[] = [
@@ -28,8 +31,10 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
       "ParkWise is a smart parking web platform designed to help drivers discover nearby parking, compare availability, and make faster decisions in busy urban areas.",
     problem:
       "Finding parking can be stressful because availability is often unclear, location information is scattered, and users do not always know which option is best before reaching the area.",
-    role:
-      "I worked across frontend, backend, database structure, and product flow, turning the idea into a usable full-stack parking experience.",
+    solution:
+      "I built a full-stack parking experience that surfaces nearby parking options, availability, and location details in a clean decision-focused interface.",
+    architecture:
+      "React powers the client experience, FastAPI handles application endpoints, PostgreSQL stores structured parking records, and Supabase supports hosted data services.",
     tools: ["React.js", "FastAPI", "Python", "PostgreSQL", "Supabase"],
     features: [
       "Search and discover nearby parking options.",
@@ -45,72 +50,73 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     ],
     challenges:
       "The hardest part was organizing parking data so it stayed useful, fast to read, and simple enough for users to understand at a glance.",
-    learning:
-      "This project helped me understand how product clarity, backend structure, and frontend usability all depend on each other in a real full-stack application.",
+    screenshots: ["/parkwise.png", "/parkwise-reference.png"],
   },
   {
-    slug: "gems-school",
-    title: "GEMS School",
-    category: "UI/UX Design, Website Design, Content Strategy",
+    slug: "weather-app",
+    title: "Weather App",
+    category: "React, Node.js, Docker, GitHub Actions",
     summary:
-      "School website redesign focused on accessibility, clear navigation, and better communication for parents and students.",
-    image: "/gems.png",
+      "Full-stack weather application with real-time weather data, a responsive UI, and automated CI/CD deployment.",
+    year: "2025",
+    overview:
+      "Weather App is a full-stack application designed to give users quick access to current weather conditions through a responsive web interface.",
+    problem:
+      "Weather information needs to feel immediate, readable, and reliable across devices, while the application also needs a repeatable deployment workflow.",
+    solution:
+      "I developed a React and Node.js weather application that fetches real-time weather data, presents it in a clean responsive UI, and uses Docker and GitHub Actions for automated delivery.",
+    architecture:
+      "React handles the frontend experience, Node.js supports server-side application logic, Docker packages the app consistently, and GitHub Actions automates the CI/CD workflow.",
+    tools: ["React", "Node.js", "Docker", "GitHub Actions"],
+    features: [
+      "Real-time weather data display.",
+      "Responsive interface for desktop and mobile users.",
+      "Full-stack React and Node.js application structure.",
+      "Automated CI/CD deployment with GitHub Actions.",
+    ],
+    process: [
+      "Built the frontend layout around fast weather lookup and clear condition details.",
+      "Connected the application to real-time weather data through backend logic.",
+      "Containerized the project with Docker for consistent local and deployment environments.",
+      "Configured GitHub Actions to automate build and deployment steps.",
+    ],
+    challenges:
+      "The main challenge was keeping the weather experience simple for users while also setting up a dependable automated deployment pipeline.",
+    screenshots: [],
+    github: "https://github.com/manisha666-star/The-Weather-Forecasting",
+  },
+  {
+    slug: "flight-reservation-system",
+    title: "Flight Reservation System",
+    category: "C++",
+    summary:
+      "Command-line flight reservation system with login, flight search, booking, CSV data storage, and input validation.",
     year: "2024",
     overview:
-      "GEMS School is a website redesign project focused on creating a clearer, more accessible digital experience for parents, students, and the wider school community.",
+      "Flight Reservation System is a C++ command-line project focused on core reservation logic, file-based data storage, and a practical booking workflow.",
     problem:
-      "School websites often contain important information, but it can be difficult for visitors to find admissions details, academic information, events, and contact points quickly.",
-    role:
-      "I led the visual design, information structure, content organization, and user experience direction for the redesign.",
-    tools: ["UI/UX Design", "Website Design", "Content Strategy", "Figma", "Adobe Creative Suite"],
+      "Flight booking requires reliable handling of user authentication, flight search, booking records, stored data, and invalid user input.",
+    solution:
+      "I built a command-line reservation system that lets users log in, search available flights, create bookings, and store records using CSV files.",
+    architecture:
+      "The system uses C++ application logic for menus, authentication, search, booking, validation, and CSV file operations for persistent data storage.",
+    tools: ["C++", "CSV Files", "Input Validation", "Command Line"],
     features: [
-      "Clear navigation for parents, students, and school visitors.",
-      "Accessible page structure for important school information.",
-      "Improved content hierarchy and communication flow.",
-      "Modern visual direction aligned with the school identity.",
+      "User login flow.",
+      "Flight search and booking workflow.",
+      "CSV file storage for reservation data.",
+      "Input validation for safer command-line interactions.",
     ],
     process: [
-      "Reviewed the existing website experience and identified navigation pain points.",
-      "Organized school content into clearer sections and page priorities.",
-      "Created visual layouts that made important actions easier to find.",
-      "Refined the design around readability, accessibility, and trust.",
+      "Mapped the command-line journey from login to flight booking.",
+      "Structured CSV files to store and retrieve flight and booking data.",
+      "Implemented search, booking, and validation logic in C++.",
+      "Tested common paths including login, flight lookup, booking, and invalid inputs.",
     ],
     challenges:
-      "The main challenge was balancing a formal school identity with a website experience that still felt approachable and easy to navigate.",
-    learning:
-      "This project strengthened my ability to translate institutional content into a clear, user-centered website experience.",
-  },
-  {
-    slug: "thunderbolts-cup",
-    title: "Thunderbolts Cup 2023",
-    category: "Event Branding, Illustrator, Motion Graphics",
-    summary:
-      "Complete event identity for one of GEMS School's largest interschool sporting events.",
-    image: "/Thunderbolts.png",
-    year: "2023",
-    overview:
-      "Thunderbolts Cup 2023 was a complete event branding project for one of GEMS School's largest interschool sporting events.",
-    problem:
-      "The event needed a strong identity that could work across print, digital, social media, team materials, and motion graphics while still feeling energetic and consistent.",
-    role:
-      "I created the visual identity and extended it across event assets, promotional materials, team graphics, and motion-based content.",
-    tools: ["Event Branding", "Adobe Illustrator", "Motion Graphics", "Adobe Creative Suite"],
-    features: [
-      "Event logo and visual identity system.",
-      "Sports-focused graphics for print and social media.",
-      "Team and event promotional materials.",
-      "Motion assets for event communication.",
-    ],
-    process: [
-      "Defined a visual direction that matched the energy of a large sports event.",
-      "Created core identity elements including color, typography, and graphic style.",
-      "Adapted the system across multiple event touchpoints.",
-      "Refined assets for consistency across digital and printed formats.",
-    ],
-    challenges:
-      "The biggest challenge was keeping the event identity consistent while adapting it to many different formats and deadlines.",
-    learning:
-      "This project taught me how important flexible design systems are when a brand needs to scale across many real-world event materials.",
+      "The most important challenge was keeping file-based reservation data organized while making the command-line flow clear and resilient to incorrect inputs.",
+    screenshots: [],
+    github: "https://github.com/manisha666-star/Flight-Reservation-System",
   },
 ];
 

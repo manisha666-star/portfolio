@@ -79,7 +79,7 @@ export default function Experience() {
         </div>
 
         {/* Experience List */}
-        <div style={{ marginTop: "112px" }}>
+        <div style={{ marginTop: "60px" }}>
           {experiences.map((item, index) => (
             <div key={item.id}>
               {index > 0 ? <div style={{ height: "50px" }} /> : null}
@@ -87,7 +87,7 @@ export default function Experience() {
 
               <div
                 className="grid gap-8 md:grid-cols-[80px_minmax(0,1fr)] md:gap-10"
-                style={{ paddingTop: "36px" }}
+                style={{ paddingTop: "32px" }}
               >
                 <div>
                   <div className="flex h-16 w-16 items-center justify-center rounded-xl border border-[#dedbd5] bg-[#ebe8e3] text-[22px] font-semibold tracking-[-0.04em] text-[#8b1e2d] shadow-[0_1px_0_rgba(255,255,255,0.9)]">
