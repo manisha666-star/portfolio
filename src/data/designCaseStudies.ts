@@ -114,6 +114,12 @@ const posterItems: DesignGalleryItem[] = [
     aspectRatio: "686 / 962",
   },
   {
+    title: "TDC Taekwondo",
+    image: "/Social Media/tdc taekwondo.png",
+    alt: "TDC Taekwondo poster design preview",
+    aspectRatio: "1570 / 1566",
+  },
+  {
     title: "Cover Orchids",
     image: "/Social Media/cover orchids.png",
     alt: "Cover orchids poster design preview",
