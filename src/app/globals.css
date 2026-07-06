@@ -765,9 +765,8 @@ body {
 
 .design-collection-copy h1 {
   color: #171717;
-  font-size: clamp(54px, 7vw, 104px);
-  font-weight: 680;
-  letter-spacing: -0.05em;
+  font-size: clamp(60px, 3vw, 90px);
+  font-weight: 620;
   line-height: 0.95;
   margin-top: 28px;
 }
@@ -775,8 +774,8 @@ body {
 .design-collection-kicker {
   color: #7a7169;
   font-size: 12px;
-  font-weight: 750;
-  letter-spacing: 0.28em;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   line-height: 1.7;
   margin-top: 76px;
   text-transform: uppercase;
@@ -787,7 +786,7 @@ body {
   font-size: clamp(18px, 1.65vw, 24px);
   letter-spacing: -0.02em;
   line-height: 1.55;
-  margin-top: 28px;
+  margin-top: 26px;
   max-width: 650px;
 }
 
@@ -865,9 +864,10 @@ body {
 }
 
 .design-thumbnail-grid {
+  align-items: start;
   display: grid;
   gap: 18px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
 .design-thumbnail-grid-single {
@@ -875,6 +875,7 @@ body {
 }
 
 .design-thumbnail {
+  align-self: start;
   background: transparent;
   border: 0;
   color: #27231f;
@@ -892,7 +893,7 @@ body {
 }
 
 .design-thumbnail-image {
-  aspect-ratio: 1.28;
+  aspect-ratio: 1;
   background: #ffffff;
   border: 1px solid #eee8df;
   border-radius: 7px;
@@ -1132,7 +1133,7 @@ body {
   }
 
   .design-thumbnail-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
   .design-thumbnail-grid-single {

@@ -3,6 +3,7 @@ export type DesignGalleryItem = {
   image: string;
   alt: string;
   link?: string;
+  aspectRatio?: string;
 };
 
 export type DesignGalleryGroup = {
@@ -28,6 +29,103 @@ export type DesignCaseStudy = {
 };
 
 const imageCycle = ["/manisha.png", "/Thunderbolts.png", "/wdl.png", "/parkwise.png"];
+
+const socialMediaItems: DesignGalleryItem[] = [
+
+  {
+    title: "Segway",
+    image: "/Social Media/Segway.png",
+    alt: "Segway social media design preview",
+    aspectRatio: "980 / 984",
+  },
+  {
+    title: "GEMS Pre Registration",
+    image: "/Social Media/gems pre registration.png",
+    alt: "GEMS pre registration social media design preview",
+    aspectRatio: "1520 / 1520",
+  },
+  {
+    title: "Grade 1",
+    image: "/Social Media/grade 1.png",
+    alt: "Grade 1 social media design preview",
+    aspectRatio: "1520 / 1520",
+  },
+  {
+    title: "TDC Taekwondo",
+    image: "/Social Media/tdc taekwondo.png",
+    alt: "TDC Taekwondo social media design preview",
+    aspectRatio: "1570 / 1566",
+  },
+  {
+    title: "Yala",
+    image: "/Social Media/yala.png",
+    alt: "Yala social media design preview",
+    aspectRatio: "652 / 646",
+  },
+  {
+    title: "AVYA",
+    image: "/Social Media/avya.png",
+    alt: "AVYA social media design preview",
+    aspectRatio: "1570 / 1566",
+  },
+  {
+    title: "Dr. Rhazes",
+    image: "/Social Media/Dr.rhazes.png",
+    alt: "Dr. Rhazes social media design preview",
+    aspectRatio: "658 / 660",
+  },
+  {
+    title: "Ehub",
+    image: "/Social Media/ehub.png",
+    alt: "Ehub social media design preview",
+    aspectRatio: "970 / 966",
+  },
+  {
+    title: "Sea",
+    image: "/Social Media/sea.png",
+    alt: "Sea social media design preview",
+    aspectRatio: "658 / 658",
+  },
+  {
+    title: "8848",
+    image: "/Social Media/8848.png",
+    alt: "8848 social media design preview",
+    aspectRatio: "974 / 972",
+  },
+  {
+    title: "Sea Links",
+    image: "/Social Media/seaLinks .png",
+    alt: "Sea Links social media design preview",
+    aspectRatio: "656 / 654",
+  },
+  {
+    title: "NCLEX",
+    image: "/Social Media/Nclex.png",
+    alt: "NCLEX social media design preview",
+    aspectRatio: "970 / 966",
+  },
+];
+
+const posterItems: DesignGalleryItem[] = [
+  {
+    title: "Opening",
+    image: "/Social Media/opeing.png",
+    alt: "Opening poster design preview",
+    aspectRatio: "686 / 962",
+  },
+  {
+    title: "Cover Orchids",
+    image: "/Social Media/cover orchids.png",
+    alt: "Cover orchids poster design preview",
+    aspectRatio: "1974 / 746",
+  },
+  {
+    title: "Print Kitchen",
+    image: "/Social Media/print kitchen .png",
+    alt: "Print Kitchen poster design preview",
+    aspectRatio: "1156 / 962",
+  },
+];
 
 function makeItems(groupTitle: string, imageOffset = 0): DesignGalleryItem[] {
   return [1, 2, 3].map((number) => {
@@ -127,7 +225,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
     category: "Social Media / Posters / Ads / Digital Campaigns",
     summary:
       "Campaign visuals for social media, posters, banners, newspaper ads, and digital promotions.",
-    image: "/gems.png",
+    image: "/Marketing.png",
     year: "2024",
     overview:
       "Marketing & Campaigns collects communication visuals created for announcements, admissions, events, promotions, and school community engagement.",
@@ -147,13 +245,13 @@ export const designCaseStudies: DesignCaseStudy[] = [
         title: "Social Media",
         description:
           "Facebook posts, Instagram posts, story layouts, and carousel-style communication.",
-        items: makeItems("Social Media", 1),
+        items: socialMediaItems,
       },
       {
         title: "Posters",
         description:
           "Event, announcement, and promotional posters with clear visual hierarchy.",
-        items: makeItems("Poster", 2),
+        items: posterItems,
       },
       {
         title: "Banners",

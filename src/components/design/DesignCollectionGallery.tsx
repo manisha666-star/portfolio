@@ -81,7 +81,14 @@ export default function DesignCollectionGallery({
 
                 const thumbnailContent = (
                   <>
-                    <span className="design-thumbnail-image">
+                    <span
+                      className="design-thumbnail-image"
+                      style={
+                        item.aspectRatio
+                          ? { aspectRatio: item.aspectRatio }
+                          : undefined
+                      }
+                    >
                       <Image
                         src={item.image}
                         alt={item.alt}
@@ -89,12 +96,11 @@ export default function DesignCollectionGallery({
                         sizes={
                           group.items.length === 1
                             ? "(max-width: 980px) 100vw, 720px"
-                            : "(max-width: 700px) 50vw, (max-width: 1100px) 33vw, 260px"
+                            : "(max-width: 700px) 50vw, (max-width: 1100px) 50vw, 260px"
                         }
-                        className={getImageClass(item.image)}
+                        className={getThumbnailImageClass(item.image)}
                       />
                     </span>
-                    <span>{item.title}</span>
                   </>
                 );
 
@@ -177,7 +183,7 @@ export default function DesignCollectionGallery({
                   fill
                   sizes="90vw"
                   priority
-                  className={getImageClass(activeItem.image)}
+                  className={getLightboxImageClass(activeItem.image)}
                 />
               </div>
 
@@ -201,7 +207,12 @@ export default function DesignCollectionGallery({
   );
 }
 
-function getImageClass(image: string) {
+function getThumbnailImageClass(image: string) {
+  if (image.includes("logo") || image.includes("brand")) return "object-contain p-8";
+  return "object-contain";
+}
+
+function getLightboxImageClass(image: string) {
   if (image.includes("logo") || image.includes("brand")) return "object-contain p-8";
   return "object-contain p-4";
 }
