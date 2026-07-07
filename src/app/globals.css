@@ -40,7 +40,7 @@ body {
 
 .parkwise-case-page {
   background:
-    radial-gradient(circle at 78% 8%, rgba(205, 222, 205, 0.48) 0 9.5rem, transparent 9.6rem),
+    radial-gradient(circle at 78% 8%, rgba(120, 31, 45, 0.16) 0 9.5rem, transparent 9.6rem),
     linear-gradient(180deg, #fbfbfa 0%, #ffffff 100%);
   color: #111827;
   font-family: var(--font-body);
@@ -83,7 +83,7 @@ body {
 }
 
 .parkwise-status-dot {
-  background: #159057;
+  background: var(--brand-maroon);
   border-radius: 999px;
   height: 10px;
   margin-left: 18px;
@@ -121,7 +121,7 @@ body {
 }
 
 .parkwise-fact p:last-child {
-  color: #04733f;
+  color: var(--brand-maroon);
   font-size: 12px;
   font-weight: 700;
   line-height: 1.28;
@@ -149,7 +149,7 @@ body {
 }
 
 .parkwise-green-disc {
-  background: #d6e6d5;
+  background: rgba(120, 31, 45, 0.16);
   border-radius: 999px;
   height: 350px;
   position: absolute;
@@ -160,7 +160,7 @@ body {
 }
 
 .parkwise-dot-pattern {
-  background-image: radial-gradient(rgba(29, 143, 83, 0.2) 1.2px, transparent 1.2px);
+  background-image: radial-gradient(rgba(120, 31, 45, 0.24) 1.2px, transparent 1.2px);
   background-size: 18px 18px;
   bottom: 0;
   height: 244px;
@@ -170,22 +170,9 @@ body {
   z-index: 0;
 }
 
-.parkwise-laptop-shot {
-  background-image: url("/parkwise-reference.png");
-  background-position: -475px -54px;
-  background-repeat: no-repeat;
-  background-size: 1024px 1536px;
-  height: 358px;
-  left: -2px;
-  position: absolute;
-  top: 14px;
-  width: 540px;
-  z-index: 1;
-}
-
 .project-hero-image-card {
   background: #ffffff;
-  border: 10px solid #101010;
+  border: 10px solid var(--brand-maroon);
   border-radius: 18px;
   box-shadow: 0 22px 42px rgba(17, 24, 39, 0.18);
   height: 318px;
@@ -197,12 +184,19 @@ body {
   z-index: 1;
 }
 
+.project-hero-image-card .project-image-contain,
+.project-panel-image .project-image-contain {
+  background: #ffffff;
+  object-fit: contain;
+  padding: 10px;
+}
+
 .project-hero-placeholder {
   align-items: center;
   background:
     linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(239, 242, 235, 0.9)),
     repeating-linear-gradient(90deg, rgba(17, 24, 39, 0.05) 0 1px, transparent 1px 28px);
-  border: 10px solid #101010;
+  border: 10px solid var(--brand-maroon);
   border-radius: 18px;
   box-shadow: 0 22px 42px rgba(17, 24, 39, 0.18);
   display: flex;
@@ -226,11 +220,12 @@ body {
 }
 
 .parkwise-hero-visual p {
-  bottom: 32px;
+  bottom: 6px;
   color: #5e625f;
   font-size: 12px;
-  left: 176px;
+  left: 50%;
   position: absolute;
+  transform: translateX(-50%);
   z-index: 2;
 }
 
@@ -261,7 +256,7 @@ body {
 }
 
 .parkwise-section-title::before {
-  background: #16a163;
+  background: var(--brand-maroon);
   content: "";
   display: inline-block;
   height: 20px;
@@ -300,8 +295,8 @@ body {
 
 .parkwise-decision-card {
   background:
-    radial-gradient(circle at 100% 0%, rgba(192, 214, 194, 0.68), transparent 52%),
-    #f0f2ec;
+    radial-gradient(circle at 100% 0%, rgba(120, 31, 45, 0.14), transparent 52%),
+    #f7f1f3;
   border-radius: 12px;
   display: grid;
   gap: 14px;
@@ -312,7 +307,7 @@ body {
 
 .parkwise-card-icon {
   align-items: center;
-  background: #159057;
+  background: var(--brand-maroon);
   border-radius: 999px;
   color: #ffffff;
   display: flex;
@@ -358,7 +353,7 @@ body {
 
 .parkwise-decision-card li::before {
   align-items: center;
-  background: #159057;
+  background: var(--brand-maroon);
   border-radius: 999px;
   color: #ffffff;
   content: "✓";
@@ -427,7 +422,7 @@ body {
 }
 
 .parkwise-tool-teal {
-  background: linear-gradient(135deg, #004f45, #17b78f);
+  background: linear-gradient(135deg, var(--brand-maroon-dark), var(--brand-maroon-muted));
   border-radius: 999px;
   color: #ffffff;
 }
@@ -443,7 +438,7 @@ body {
 }
 
 .parkwise-tool-green {
-  color: #24bf72;
+  color: var(--brand-maroon);
   font-size: 28px;
 }
 
@@ -477,7 +472,7 @@ body {
 
 .parkwise-process li > span {
   align-items: center;
-  background: #159057;
+  background: var(--brand-maroon);
   border-radius: 999px;
   color: #ffffff;
   display: flex;
@@ -501,9 +496,14 @@ body {
 
 .parkwise-visual-grid {
   display: grid;
-  gap: 16px;
+  gap: 300px;
   grid-template-columns: 1fr 1.07fr;
   margin-top: 29px;
+  margin-bottom: 70px;
+}
+
+.parkwise-visual-grid-single {
+  grid-template-columns: 1fr;
 }
 
 .parkwise-image-panel {
@@ -527,28 +527,11 @@ body {
 }
 
 .parkwise-image-panel figcaption::before {
-  background: #16a163;
+  background: var(--brand-maroon);
   content: "";
   height: 16px;
   margin-right: 12px;
   width: 2px;
-}
-
-.parkwise-reference-crop {
-  background-image: url("/parkwise-reference.png");
-  background-repeat: no-repeat;
-  background-size: 1024px 1536px;
-  border-radius: 7px;
-  height: 252px;
-  width: 100%;
-}
-
-.parkwise-reference-main {
-  background-position: -54px -1110px;
-}
-
-.parkwise-reference-flow {
-  background-position: -506px -1115px;
 }
 
 .project-panel-image {
@@ -564,7 +547,7 @@ body {
   align-items: center;
   background:
     linear-gradient(135deg, #ffffff, #f1f3ee),
-    radial-gradient(circle at 18% 18%, rgba(22, 161, 99, 0.12), transparent 34%);
+    radial-gradient(circle at 18% 18%, rgba(120, 31, 45, 0.12), transparent 34%);
   border: 1px solid #e5e7e2;
   border-radius: 7px;
   display: flex;
@@ -610,8 +593,8 @@ body {
 }
 
 .parkwise-bulb {
-  background: #def1df;
-  color: #159057;
+  background: rgba(120, 31, 45, 0.12);
+  color: var(--brand-maroon);
 }
 
 .parkwise-insight-grid p {
@@ -623,7 +606,7 @@ body {
 }
 
 .parkwise-insight-grid a {
-  color: #04733f;
+  color: var(--brand-maroon);
   font-weight: 700;
   text-decoration: none;
 }
@@ -733,9 +716,9 @@ body {
 }
 
 .project-tool-green {
-  background: #def1df;
+  background: rgba(120, 31, 45, 0.12);
   border-radius: 999px;
-  color: #159057;
+  color: var(--brand-maroon);
 }
 
 .design-collection-page {
@@ -1086,12 +1069,6 @@ body {
     min-height: 350px;
   }
 
-  .parkwise-laptop-shot {
-    left: 50%;
-    transform: translateX(-50%) scale(0.88);
-    transform-origin: top center;
-  }
-
   .project-hero-image-card {
     left: 50%;
     transform: translateX(-50%) scale(0.88);
@@ -1155,10 +1132,6 @@ body {
   .parkwise-decision-card,
   .parkwise-insight-grid article {
     grid-template-columns: 1fr;
-  }
-
-  .parkwise-laptop-shot {
-    transform: translateX(-50%) scale(0.66);
   }
 
   .project-hero-image-card {

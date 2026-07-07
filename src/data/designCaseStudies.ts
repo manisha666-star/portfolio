@@ -28,7 +28,12 @@ export type DesignCaseStudy = {
   results: string;
 };
 
-const imageCycle = ["/manisha.png", "/Thunderbolts.png", "/wdl.png", "/parkwise.png"];
+const imageCycle = [
+  "/Design/manisha.png",
+  "/Design/Thunderbolts.png",
+  "/Design/wdl.png",
+  "/Design/parkwise.png",
+];
 
 const socialMediaItems: DesignGalleryItem[] = [
 
@@ -152,7 +157,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
     category: "Logos / Guidelines / Brand Applications",
     summary:
       "Identity systems built around logos, brand guidelines, business cards, and applied brand touchpoints.",
-    image: "/Branding.png",
+    image: "/Design/Branding.png",
     year: "2024",
     overview:
       "Brand Identity brings together visual systems designed to make organizations, campaigns, and school communications feel consistent, recognizable, and polished.",
@@ -175,17 +180,17 @@ export const designCaseStudies: DesignCaseStudy[] = [
         items: [
           {
             title: "Manisha Rai Portfolio",
-            image: "/Mr LOGO.png",
+            image: "/Design/Mr LOGO.png",
             alt: "Manisha Rai portfolio brand identity preview",
           },
           {
             title: "Thunderbolts Cup",
-            image: "/Thunderbolts.png",
+            image: "/Design/Thunderbolts.png",
             alt: "Thunderbolts Cup logo preview",
           },
           {
             title: "Women's Deadlift Competition",
-            image: "/wdl.png",
+            image: "/Design/wdl.png",
             alt: "Logo design preview 3",
           },
         ],
@@ -197,7 +202,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
         items: [
           {
             title: "Thunderbolts Cup Brand Guidelines",
-            image: "/tbc guidelines.png",
+            image: "/Design/tbc guidelines.png",
             alt: "Thunderbolts Cup brand guidelines preview",
             link: "https://drive.google.com/file/d/1eGPGcyK_bOw2yWOIh35TRIr4b0y5ksXu/view",
           },
@@ -210,7 +215,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
         items: [
           {
             title: "Business Card GEMS school",
-            image: "/VC sample 3.jpg",
+            image: "/Design/VC sample 3.jpg",
             alt: "Business Card GEMS school preview",
           },
         ],
@@ -231,7 +236,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
     category: "Social Media / Posters / Ads / Digital Campaigns",
     summary:
       "Campaign visuals for social media, posters, banners, newspaper ads, and digital promotions.",
-    image: "/Marketing.png",
+    image: "/Design/Marketing.png",
     year: "2024",
     overview:
       "Marketing & Campaigns collects communication visuals created for announcements, admissions, events, promotions, and school community engagement.",
@@ -287,7 +292,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
     category: "Yearbooks / Prospectus / Brochures / Certificates",
     summary:
       "Editorial and print materials for schools and educational institutions, focused on clear layouts and typography.",
-    image: "/gems.png",
+    image: "/Design/gems.png",
     year: "2024",
     overview:
       "I designed a variety of editorial and print materials for schools and educational institutions, focusing on clear layouts, typography, and visual storytelling.",
@@ -349,7 +354,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
     category: "Thunderbolts Cup / Medals / Backdrops / Event Graphics",
     summary:
       "Event identity systems and supporting graphics for school events, sports, ceremonies, and campaigns.",
-    image: "/Thunderbolts.png",
+    image: "/Design/Thunderbolts.png",
     year: "2023",
     overview:
       "Event Branding brings together visual systems for school and sporting events, including Thunderbolts Cup assets, medals, stage graphics, shirts, and event communication pieces.",
@@ -405,7 +410,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
     category: "GEMS School / ParkWise UI / NepEdu / Dashboards",
     summary:
       "Interface and product design work for school platforms, dashboards, mobile apps, and product concepts.",
-    image: "/parkwise.png",
+    image: "/Design/parkwise.png",
     year: "2024",
     overview:
       "UI / UX Design gathers interface work for websites, dashboards, mobile apps, and education-focused digital products.",
@@ -461,7 +466,7 @@ export const designCaseStudies: DesignCaseStudy[] = [
     category: "GIFs / Video Edits / Animations / Promotional Videos",
     summary:
       "Motion-led design work including animated graphics, video edits, GIFs, and promotional content.",
-    image: "/Thunderbolts.png",
+    image: "/Design/Thunderbolts.png",
     year: "2024",
     overview:
       "Motion Graphics collects animated and video-based work made for event promotion, announcements, campaigns, and digital communication.",

@@ -64,6 +64,8 @@ function ProjectShowcaseCaseStudy({
   projectNumber: string;
 }) {
   const details = getShowcaseDetails(project.slug);
+  const imageFitClass = project.slug === "parkwise" ? "object-contain project-image-contain" : "object-cover";
+  const screenshots = project.screenshots.filter(Boolean);
 
   return (
     <main className={`parkwise-case-page ${details.themeClass}`}>
@@ -108,9 +110,7 @@ function ProjectShowcaseCaseStudy({
         >
           <span className="parkwise-green-disc" />
           <span className="parkwise-dot-pattern" />
-          {project.slug === "parkwise" ? (
-            <div className="parkwise-laptop-shot" />
-          ) : project.image ? (
+          {project.image ? (
             <div className="project-hero-image-card">
               <Image
                 src={project.image}
@@ -118,7 +118,7 @@ function ProjectShowcaseCaseStudy({
                 fill
                 priority
                 sizes="(max-width: 980px) 88vw, 540px"
-                className="object-cover"
+                className={imageFitClass}
               />
             </div>
           ) : (
@@ -183,36 +183,20 @@ function ProjectShowcaseCaseStudy({
         </ol>
       </section>
 
-      <section className="parkwise-visual-grid">
-        <figure className="parkwise-image-panel parkwise-main-panel">
-          <figcaption>Screenshots</figcaption>
-          {project.slug === "parkwise" ? (
-            <div className="parkwise-reference-crop parkwise-reference-main" />
-          ) : project.screenshots[0] ? (
-            <ProjectPanelImage
-              image={project.screenshots[0]}
-              title={project.title}
-              position={details.visualOnePosition}
-            />
-          ) : (
-            <ProjectPanelPlaceholder title={project.title} />
-          )}
-        </figure>
-        <figure className="parkwise-image-panel parkwise-flow-panel">
-          <figcaption>Product flow</figcaption>
-          {project.slug === "parkwise" ? (
-            <div className="parkwise-reference-crop parkwise-reference-flow" />
-          ) : project.screenshots[1] ? (
-            <ProjectPanelImage
-              image={project.screenshots[1]}
-              title={project.title}
-              position={details.visualTwoPosition}
-            />
-          ) : (
-            <ProjectPanelPlaceholder title={project.title} />
-          )}
-        </figure>
-      </section>
+      {screenshots.length ? (
+        <section className={`parkwise-visual-grid ${screenshots.length === 1 ? "parkwise-visual-grid-single" : ""}`}>
+          {screenshots.map((screenshot, index) => (
+            <figure className="parkwise-image-panel" key={screenshot}>
+              <ProjectPanelImage
+                image={screenshot}
+                title={project.title}
+                position={index === 0 ? details.visualOnePosition : details.visualTwoPosition}
+                imageClassName={imageFitClass}
+              />
+            </figure>
+          ))}
+        </section>
+      ) : null}
 
       <section className="parkwise-insight-grid">
         <article>
@@ -225,12 +209,12 @@ function ProjectShowcaseCaseStudy({
         <article>
           <span className="parkwise-insight-icon parkwise-bulb">↗</span>
           <div>
-            <h2>GitHub and Live Demo</h2>
+            <h2>GitHub Repository</h2>
             <p>
               {project.github ? (
                 <a href={project.github}>GitHub</a>
               ) : (
-                "GitHub link coming soon"
+                "Explore the complete source code, project structure,"
               )}
               {" · "}
               {project.liveDemo ? (
@@ -254,10 +238,12 @@ function ProjectPanelImage({
   image,
   title,
   position,
+  imageClassName = "object-cover",
 }: {
   image: string;
   title: string;
   position: string;
+  imageClassName?: string;
 }) {
   return (
     <div className="project-panel-image">
@@ -266,16 +252,8 @@ function ProjectPanelImage({
         alt={`${title} ${position} preview`}
         fill
         sizes="(max-width: 980px) 88vw, 560px"
-        className={`object-cover ${position}`}
+        className={`${imageClassName} ${position}`}
       />
-    </div>
-  );
-}
-
-function ProjectPanelPlaceholder({ title }: { title: string }) {
-  return (
-    <div className="project-panel-placeholder">
-      <span>{title.slice(0, 2)}</span>
     </div>
   );
 }

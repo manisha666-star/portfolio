@@ -24,8 +24,8 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     title: "ParkWise",
     category: "React.js, FastAPI, Python, PostgreSQL, Supabase",
     summary:
-      "Smart parking platform for finding nearby parking, checking real-time availability, and making better urban parking decisions.",
-    image: "/parkwise.png",
+      "Full-stack smart parking platform for discovering nearby parking locations, visualizing real-time availability, and improving urban parking decisions.",
+    image: "/projects/mp_find park.png",
     year: "2025",
     overview:
       "ParkWise is a smart parking web platform designed to help drivers discover nearby parking, compare availability, and make faster decisions in busy urban areas.",
@@ -34,23 +34,24 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     solution:
       "I built a full-stack parking experience that surfaces nearby parking options, availability, and location details in a clean decision-focused interface.",
     architecture:
-      "React powers the client experience, FastAPI handles application endpoints, PostgreSQL stores structured parking records, and Supabase supports hosted data services.",
+      "React.js provides the user interface, FastAPI exposes RESTful APIs, PostgreSQL stores structured parking data, and Supabase manages cloud database services and backend integration.",
     tools: ["React.js", "FastAPI", "Python", "PostgreSQL", "Supabase"],
     features: [
       "Search and discover nearby parking options.",
       "View real-time parking availability.",
-      "Compare parking locations and details.",
+      "Compare parking locations, availability, and details.",
       "Support better urban parking decisions through clearer information.",
     ],
     process: [
       "Mapped the user journey from searching for parking to choosing a location.",
       "Designed the data model for parking locations, availability, and related details.",
       "Built the frontend experience in React with clean, scannable parking information.",
-      "Connected backend APIs and database records to support real-time platform behavior.",
+      "Developed RESTful APIs with FastAPI and integrated Supabase with PostgreSQL for persistent data management.",
     ],
     challenges:
-      "The hardest part was organizing parking data so it stayed useful, fast to read, and simple enough for users to understand at a glance.",
-    screenshots: ["/parkwise.png", "/parkwise-reference.png"],
+      "Designed a scalable parking data structure while keeping search results organized, responsive, and easy for users to understand.",
+    screenshots: [],
+    github: "https://github.com/manisha666-star/ParkWise_1.7",
   },
   {
     slug: "weather-app",
@@ -58,6 +59,7 @@ export const projectCaseStudies: ProjectCaseStudy[] = [
     category: "React, Node.js, Docker, GitHub Actions",
     summary:
       "Full-stack weather application with real-time weather data, a responsive UI, and automated CI/CD deployment.",
+    image: "/projects/Weather .png",
     year: "2025",
     overview:
       "Weather App is a full-stack application designed to give users quick access to current weather conditions through a responsive web interface.",
